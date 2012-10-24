@@ -16,3 +16,6 @@
 [submodule "submodules/vim-lighttpd"]
 	path = submodules/vim-lighttpd
 	url = git://github.com/vim-scripts/lighttpd-syntax.git
+[submodule "submodules/vim-markdown"]
+	path = submodules/vim-markdown
+	url = git://github.com/hallison/vim-markdown.git
