@@ -7,3 +7,6 @@
 [submodule "submodules/vim-colors-solarized"]
 	path = submodules/vim-colors-solarized
 	url = git://github.com/altercation/vim-colors-solarized.git
+[submodule "submodules/vim-css"]
+	path = submodules/vim-css
+	url = git://github.com/xenoterracide/css.vim.git
