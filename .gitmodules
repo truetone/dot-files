@@ -1,3 +1,9 @@
 [submodule "submodules/pathogen"]
 	path = submodules/pathogen
 	url = git://github.com/tpope/vim-pathogen.git
+[submodule "submodules/bufexplorer"]
+	path = submodules/bufexplorer
+	url = git://github.com/c9s/bufexplorer.git
+[submodule "submodules/vim-colors-solarized"]
+	path = submodules/vim-colors-solarized
+	url = git://github.com/altercation/vim-colors-solarized.git
