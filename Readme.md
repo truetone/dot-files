@@ -1,6 +1,6 @@
 #Tony's dotfiles
 
-After cloning this, you'll need to run
+After cloning this, you'll need to run:
 	
 	git submodule update
 
