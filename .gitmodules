@@ -13,3 +13,6 @@
 [submodule "submodules/vim-jinja"]
 	path = submodules/vim-jinja
 	url = git://github.com/rdunklau/Jinja.vim.git
+[submodule "submodules/vim-lighttpd"]
+	path = submodules/vim-lighttpd
+	url = git://github.com/vim-scripts/lighttpd-syntax.git

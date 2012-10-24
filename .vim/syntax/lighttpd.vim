@@ -1,0 +1,1 @@
+../../submodules/vim-lighttpd/syntax/lighttpd.vim
