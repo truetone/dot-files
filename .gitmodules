@@ -10,3 +10,6 @@
 [submodule "submodules/vim-css"]
 	path = submodules/vim-css
 	url = git://github.com/xenoterracide/css.vim.git
+[submodule "submodules/vim-jinja"]
+	path = submodules/vim-jinja
+	url = git://github.com/rdunklau/Jinja.vim.git
