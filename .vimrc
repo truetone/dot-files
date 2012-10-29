@@ -16,6 +16,7 @@ set incsearch
 set hlsearch
 set antialias
 set autoindent
+set shiftwidth=4
 set tabstop=4
 set noexpandtab
 set ea
@@ -34,6 +35,13 @@ au BufNewFile,BufRead /etc/lighttpd/*.conf,lighttpd.conf set filetype=lighttpd
 call pathogen#infect()
 ":nnoremap <F5> :buffers<CR>:buffer<Space>
 
+"" Remap F3 to remove whitespace at the end of each line
+nnoremap <silent> <F3> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
+
+"" Do not use swap files
+set nobackup
+set nowritebackup
+set noswapfile
 
 "Git branch
 function! GitBranch()
