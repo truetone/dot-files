@@ -1,3 +1,8 @@
+"fold settings
+set foldmethod=indent
+set foldnestmax=10
+set nofoldenable
+set foldlevel=1
 set hidden
 set encoding=utf8
 set ttyfast
