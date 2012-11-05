@@ -100,9 +100,9 @@ fi
 #php /var/www/html/bin/update_ip_files.php
 
 # Virtualenv info
-#export WORKON_HOME=/var/env
-#export PROJECT_HOME=/var/www
-#source /usr/local/bin/virtualenvwrapper.sh
+export WORKON_HOME=/Users/thoma127/Sites/envs
+export PROJECT_HOME=/Users/thoma127/Sites
+source /usr/local/bin/virtualenvwrapper.sh
 
 alias tmux="TERM=screen-256color-bce tmux"
 
