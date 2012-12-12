@@ -22,3 +22,6 @@
 [submodule "submodules/vim-unimpaired"]
 	path = submodules/vim-unimpaired
 	url = git://github.com/tpope/vim-unimpaired.git
+[submodule "submodules/scss-syntax"]
+	path = submodules/scss-syntax
+	url = https://github.com/cakebaker/scss-syntax.vim.git

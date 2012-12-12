@@ -108,6 +108,10 @@ alias tmux="TERM=screen-256color-bce tmux"
 
 alias hop=". hop $1"
 
+alias i="ssh indepenents.sua.umn.edu"
+
+alias b="ssh browncoat.sua.umn.edu"
+
 ## Give new files permissions 664 and new folders permission 775.
 umask 002
 
