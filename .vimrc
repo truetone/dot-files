@@ -37,6 +37,7 @@ syntax on
 au BufNewFile,BufRead *.twig set filetype=jinja
 au BufNewFile,BufRead *.md set filetype=markdown
 au BufNewFile,BufRead /etc/lighttpd/*.conf,lighttpd.conf set filetype=lighttpd
+au BufRead,BufNewFile *.scss set filetype=scss
 call pathogen#infect()
 ":nnoremap <F5> :buffers<CR>:buffer<Space>
 
