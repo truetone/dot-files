@@ -80,6 +80,18 @@ alias ll='ls -alhF'
 alias la='ls -A'
 alias l='ls -CF'
 
+# some grep aliases
+alias greps="grep -rn --include '*.css' --include '*.scss' --include '*.sass' --include '*.py' --include '*.js' --include '*.php' --include '*.html' --include '*.txt'"
+alias grepi="grep -rin --include '*.css' --include '*.scss' --include '*.sass' --include '*.py' --include '*.js' --include '*.php' --include '*.html' --include '*.txt'"
+alias grep_php="grep -rin --include '*.php'"
+alias grep_css="grep -rin --include '*.css'"
+alias grep_js="grep -rin --include '*.js'"
+alias grep_py="grep -rin --include '*.py'"
+
+# handy git aliases
+alias dev="git checkout develop"
+alias co="git checkout"
+
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
@@ -100,9 +112,12 @@ fi
 #php /var/www/html/bin/update_ip_files.php
 
 # Virtualenv info
-#export WORKON_HOME=/var/env
-#export PROJECT_HOME=/var/www
-#source /usr/local/bin/virtualenvwrapper.sh
+export PATH=/usr/bin/python:$PATH
+export WORKON_HOME=/var/env
+#export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
+#export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
+export PROJECT_HOME=/www
+source /usr/local/bin/virtualenvwrapper_lazy.sh
 
 alias tmux="TERM=screen-256color-bce tmux"
 
