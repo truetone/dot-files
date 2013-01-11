@@ -1,4 +1,8 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
+function echoRcvd(d)
+{
+	$('#console').append('<p>Received: ' + d);
+}
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
@@ -96,10 +100,9 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-# Update my ip address
-#php /var/www/html/bin/update_ip_files.php
-
 # Virtualenv info
+export VIRTUALENVWRAPPER_PYTHON=/Users/thoma127/.pythonbrew/pythons/Python-2.7.2/bin/python
+export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
 export WORKON_HOME=/Users/thoma127/Sites/envs
 export PROJECT_HOME=/Users/thoma127/Sites
 source /usr/local/bin/virtualenvwrapper.sh
@@ -108,7 +111,7 @@ alias tmux="TERM=screen-256color-bce tmux"
 
 alias hop=". hop $1"
 
-alias i="ssh indepenents.sua.umn.edu"
+alias i="ssh independents.sua.umn.edu"
 
 alias b="ssh browncoat.sua.umn.edu"
 
@@ -144,3 +147,6 @@ function proml {
 }
 
 proml
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+[[ -s $HOME/.pythonbrew/etc/bashrc ]] && source $HOME/.pythonbrew/etc/bashrc
