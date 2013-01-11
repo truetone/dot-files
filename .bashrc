@@ -91,6 +91,8 @@ alias grep_py="grep -rin --include '*.py'"
 # handy git aliases
 alias dev="git checkout develop"
 alias co="git checkout"
+alias add="git add"
+alias cmt="git commit"
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
