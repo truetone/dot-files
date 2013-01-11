@@ -1,8 +1,4 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
-function echoRcvd(d)
-{
-	$('#console').append('<p>Received: ' + d);
-}
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
@@ -84,6 +80,18 @@ alias ll='ls -alhF'
 alias la='ls -A'
 alias l='ls -CF'
 
+# some grep aliases
+alias greps="grep -rn --include '*.css' --include '*.scss' --include '*.sass' --include '*.py' --include '*.js' --include '*.php' --include '*.html' --include '*.txt'"
+alias grepi="grep -rin --include '*.css' --include '*.scss' --include '*.sass' --include '*.py' --include '*.js' --include '*.php' --include '*.html' --include '*.txt'"
+alias grep_php="grep -rin --include '*.php'"
+alias grep_css="grep -rin --include '*.css'"
+alias grep_js="grep -rin --include '*.js'"
+alias grep_py="grep -rin --include '*.py'"
+
+# handy git aliases
+alias dev="git checkout develop"
+alias co="git checkout"
+
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
@@ -100,20 +108,20 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
+# Update my ip address
+#php /var/www/html/bin/update_ip_files.php
+
 # Virtualenv info
-export VIRTUALENVWRAPPER_PYTHON=/Users/thoma127/.pythonbrew/pythons/Python-2.7.2/bin/python
-export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
-export WORKON_HOME=/Users/thoma127/Sites/envs
-export PROJECT_HOME=/Users/thoma127/Sites
-source /usr/local/bin/virtualenvwrapper.sh
+export PATH=/usr/bin/python:$PATH
+export WORKON_HOME=/var/env
+#export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
+#export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
+export PROJECT_HOME=/www
+source /usr/local/bin/virtualenvwrapper_lazy.sh
 
 alias tmux="TERM=screen-256color-bce tmux"
 
 alias hop=". hop $1"
-
-alias i="ssh independents.sua.umn.edu"
-
-alias b="ssh browncoat.sua.umn.edu"
 
 ## Give new files permissions 664 and new folders permission 775.
 umask 002
@@ -147,6 +155,3 @@ function proml {
 }
 
 proml
-
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-[[ -s $HOME/.pythonbrew/etc/bashrc ]] && source $HOME/.pythonbrew/etc/bashrc
