@@ -1,8 +1,2 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =6
-let g:netrw_dirhist_1='/www/test.sua.umn.edu/admin'
-let g:netrw_dirhist_2='/www/test.sua.umn.edu/apps/pancake'
-let g:netrw_dirhist_3='/www/test.sua.umn.edu/apps/pancake/models'
-let g:netrw_dirhist_4='/www/thoma127.test.sua.umn.edu/apps/program-board/collaborations'
-let g:netrw_dirhist_5='/www/thoma127.test.sua.umn.edu/models/tdir/controllers'
-let g:netrw_dirhist_6='/www/demar136.test.sua.umn.edu/apps/involvement'
+let g:netrw_dirhist_cnt =0

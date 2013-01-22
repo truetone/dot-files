@@ -99,6 +99,9 @@ alias plod="git pull origin develop"
 alias phod="git push origin develop"
 alias plom="git pull origin master"
 alias phom="git push origin master"
+alias glog="git log --stat"
+alias merge="git merge --no-ff"
+alias gb="git branch"
 
 # aliases for moving around
 alias home="cd ~/"
