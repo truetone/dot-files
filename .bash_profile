@@ -29,6 +29,18 @@ alias dev="git checkout develop"
 alias co="git checkout"
 alias add="git add"
 alias cmt="git commit"
+alias st="git status"
+alias plod="git pull origin develop"
+alias phod="git push origin develop"
+alias plom="git pull origin master"
+alias phom="git push origin master"
+
+# moving around
+alias home="cd ~/"
+alias sites="cd ~/Sites"
+alias desktop="cd ~/Desktop"
+alias sj="cd ~/Sites/springjam.umn.edu"
+alias mwc="cd ~/Sites/minnewebcon2013"
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
