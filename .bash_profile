@@ -34,11 +34,15 @@ alias plod="git pull origin develop"
 alias phod="git push origin develop"
 alias plom="git pull origin master"
 alias phom="git push origin master"
+alias merge="git merge --no-ff"
+alias gb="git branch"
+alias glog="git log --stat"
 
 # moving around
 alias home="cd ~/"
 alias sites="cd ~/Sites"
 alias desktop="cd ~/Desktop"
+alias docs="cd ~/Documents"
 alias sj="cd ~/Sites/springjam.umn.edu"
 alias mwc="cd ~/Sites/minnewebcon2013"
 
