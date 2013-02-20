@@ -25,3 +25,9 @@
 [submodule "submodules/vim-css3-synta"]
 	path = submodules/vim-css3-synta
 	url = https://github.com/hail2u/vim-css3-syntax.git
+[submodule ".vim/bundle/syntastic"]
+	path = .vim/bundle/syntastic
+	url = git@github.com:scrooloose/syntastic.git
+[submodule "submodules/syntastic"]
+	path = submodules/syntastic
+	url = git@github.com:scrooloose/syntastic.git

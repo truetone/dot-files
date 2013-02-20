@@ -84,6 +84,11 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
+# Add completion to above aliases
+# complete -o bashdefault -o default -o nospace -F _git git
+completion-wrapper _git _co git checkout
+complete -o bashdefault -o default -o nospace -F _co co
+
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
@@ -132,3 +137,21 @@ function proml {
 }
 
 proml
+
+# Completion wrapper from http://ubuntuforums.org/showthread.php?t=733397
+function completion-wrapper () {
+	local function_name="$2"
+	local arg_count=$(($#-3))
+	local comp_function_name="$1"
+	shift 2
+	local function="
+function $function_name {
+	((COMP_CWORD+=$arg_count))
+	COMP_WORDS=( "$@" \${COMP_WORDS[@]:1} )
+	"$comp_function_name"
+	return 0
+}"
+	eval "$function"
+	echo $function_name
+	echo "$function"
+}
