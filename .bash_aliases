@@ -3,12 +3,12 @@ alias la='ls -A'
 alias l='ls -CF'
 
 # some grep aliases
-alias greps="grep -rn --include '*.css' --include '*.scss' --include '*.sass' --include '*.py' --include '*.js' --include '*.php' --include '*.html' --include '*.txt' --exclude-dir 'cache' --exclude-dir 'prepared' --exclude-dir 'Cache'"
-alias grepi="grep -rin --include '*.css' --include '*.scss' --include '*.sass' --include '*.py' --include '*.js' --include '*.php' --include '*.html' --include '*.txt' --exclude-dir 'cache' --exclude-dir 'prepared' --exclude-dir 'Cache'"
-alias grep_php="grep -rin --include '*.php' --exclude-dir 'cache' --exclude-dir 'prepared' --exclude-dir 'Cache'"
-alias grep_css="grep -rin --include '*.css' --exclude-dir 'cache'"
-alias grep_js="grep -rin --include '*.js' --exclude-dir 'cache'"
-alias grep_py="grep -rin --include '*.py' --exclude-dir 'cache'"
+alias greps="grep -rn --include '*.css' --include '*.scss' --include '*.sass' --include '*.py' --include '*.js' --include '*.php' --include '*.html' --include '*.txt' --exclude-dir 'cache' --exclude-dir 'prepared' --exclude-dir 'Cache' --exclude-dir 'tests'"
+alias grepi="grep -rin --include '*.css' --include '*.scss' --include '*.sass' --include '*.py' --include '*.js' --include '*.php' --include '*.html' --include '*.txt' --exclude-dir 'cache' --exclude-dir 'prepared' --exclude-dir 'Cache' --exclude-dir 'tests'"
+alias grep_php="grep -rin --include '*.php' --exclude-dir 'cache' --exclude-dir 'prepared' --exclude-dir 'Cache' --exclude-dir 'tests'"
+alias grep_css="grep -rin --include '*.css' --exclude-dir 'cache' --exclude-dir 'tests'"
+alias grep_js="grep -rin --include '*.js' --exclude-dir 'cache' --exclude-dir 'tests'"
+alias grep_py="grep -rin --include '*.py' --exclude-dir 'cache' --exclude-dir 'tests'"
 
 # handy git aliases
 alias dev="git checkout develop"
@@ -27,4 +27,8 @@ alias gb="git branch"
 
 # aliases for moving around
 alias home="cd ~/"
+alias testbed="hop tony"
 
+#tailing
+alias tpe="tail -fn 40 /var/log/php/error.log"
+alias tfe="sudo supervisorctl tail thoma127.test.sua.umn.ed\#flask stderr"

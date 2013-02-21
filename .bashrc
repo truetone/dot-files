@@ -101,6 +101,10 @@ export WORKON_HOME=/var/env
 export PROJECT_HOME=/www
 source /usr/local/bin/virtualenvwrapper.sh
 
+# Get colors in less
+export LESS='-R'
+export LESSOPEN='|~/.lessfilter %s'
+
 alias tmux="TERM=screen-256color-bce tmux"
 
 alias hop=". hop $1"
