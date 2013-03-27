@@ -28,7 +28,27 @@ alias gb="git branch"
 # aliases for moving around
 alias home="cd ~/"
 alias testbed="hop tony"
+alias tb="hop tony"
+alias sj="cd /www/thoma127.test.springjam.umn.edu"
+alias models="cd /www/thoma127.test.sua.umn.edu/models"
+alias pub="cd /www/thoma127.test.sua.umn.edu/public"
 
 #tailing
 alias tpe="tail -fn 40 /var/log/php/error.log"
 alias tfe="sudo supervisorctl tail thoma127.test.sua.umn.ed\#flask stderr"
+
+#python
+alias pylint="python -m py_compile"
+
+#lightty
+alias lreload="sudo /etc/init.d/lighttpd reload"
+alias lvconfig="sudo vi /etc/lighttpd/sites-available/thoma127.test.sua.umn.edu.conf"
+
+#tmux
+alias tsession="tmux new-session -s test"
+
+#supervisor
+alias sup="sudo supervisorctl"
+
+#fix permissions
+alias fap="sudo /usr/local/bin/scripts/fixallperms.sh"

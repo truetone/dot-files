@@ -97,7 +97,7 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 fi
 
 export PATH=/usr/bin/python:$PATH
-export WORKON_HOME=/var/env
+export WORKON_HOME=/home/thoma127/.venvs
 export PROJECT_HOME=/www
 source /usr/local/bin/virtualenvwrapper.sh
 

@@ -1,11 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =9
-let g:netrw_dirhist_1='/www/thoma127.test.sua.umn.edu/apps/_touchdirapp'
+let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_1='/www/thoma127.test.sua.umn.edu/settings/production'
 let g:netrw_dirhist_2='/www/thoma127.test.sua.umn.edu/apps/static/sass'
-let g:netrw_dirhist_3='/www/test.sua.umn.edu/models/entertainment'
-let g:netrw_dirhist_4='/www/thoma127.test.sua.umn.edu/apps/game-rooms/goldys-calendar'
-let g:netrw_dirhist_5='/www/thoma127.test.sua.umn.edu/models/mobile/Template'
-let g:netrw_dirhist_6='/www/thoma127.test.sua.umn.edu/models/mobile/Template/Cache'
-let g:netrw_dirhist_7='/www/thoma127.test.sua.umn.edu/models/mobile/Template'
-let g:netrw_dirhist_8='/www/thoma127.test.sua.umn.edu/models/mobile/Template/mobile'
-let g:netrw_dirhist_9='/home/thoma127/dotfiles/.git/modules'
+let g:netrw_dirhist_3='/www/thoma127.test.sua.umn.edu/apps/content/study'
+let g:netrw_dirhist_4='/etc/supervisor/conf.d'
+let g:netrw_dirhist_5='/etc/supervisor'
