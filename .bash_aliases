@@ -13,6 +13,7 @@ alias grep_py="grep -rin --include '*.py' --exclude-dir 'cache' --exclude-dir 't
 # handy git aliases
 alias dev="git checkout develop"
 alias mas="git checkout master"
+alias gr="git checkout grants"
 alias st="git status"
 alias co="git checkout"
 alias add="git add"
@@ -21,6 +22,8 @@ alias plod="git pull origin develop"
 alias phod="git push origin develop"
 alias plom="git pull origin master"
 alias phom="git push origin master"
+alias plog="git pull origin grants"
+alias phog="git push origin grants"
 alias glog="git log --stat"
 alias merge="git merge --no-ff"
 alias gb="git branch"
@@ -52,3 +55,6 @@ alias sup="sudo supervisorctl"
 
 #fix permissions
 alias fap="sudo /usr/local/bin/scripts/fixallperms.sh"
+
+#test.sua.umn.edu virtualenv
+alias testvenv="source /var/env/sua-test/bin/activate"

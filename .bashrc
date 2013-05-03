@@ -80,20 +80,12 @@ fi
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
+#if [ -f ~/.bash_aliases ]; then
+#    . ~/.bash_aliases
+#fi
 
-# Add completion to above aliases
-# complete -o bashdefault -o default -o nospace -F _git git
-completion-wrapper _git _co git checkout
-complete -o bashdefault -o default -o nospace -F _co co
-
-# enable programmable completion features (you don't need to enable
-# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
-# sources /etc/bash.bashrc).
-if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
-    . /etc/bash_completion
+if [ -f ~/dotfiles/.bash_aliases ]; then
+    . ~/dotfiles/.bash_aliases
 fi
 
 export PATH=/usr/bin/python:$PATH
@@ -156,6 +148,19 @@ function $function_name {
 	return 0
 }"
 	eval "$function"
-	echo $function_name
-	echo "$function"
+	#echo $function_name
+	#echo "$function"
 }
+
+# Add completion to above aliases
+# complete -o bashdefault -o default -o nospace -F _git git
+completion-wrapper _git _co git checkout
+complete -o bashdefault -o default -o nospace -F _co co
+
+# enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
+    . /etc/bash_completion
+fi
+
