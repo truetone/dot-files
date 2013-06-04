@@ -1,9 +1,2 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =7
-let g:netrw_dirhist_1='/www/thoma127.test.sua.umn.edu/settings/production'
-let g:netrw_dirhist_2='/www/thoma127.test.sua.umn.edu/apps/static/sass'
-let g:netrw_dirhist_3='/www/thoma127.test.sua.umn.edu/apps/content/study'
-let g:netrw_dirhist_4='/etc/supervisor/conf.d'
-let g:netrw_dirhist_5='/etc/supervisor'
-let g:netrw_dirhist_6='/www/thoma127.test.sua.umn.edu/public/css/scss'
-let g:netrw_dirhist_7='/www/thoma127.test.outdoor.umn.edu/apps/static/css/sass'
+let g:netrw_dirhist_cnt =0

@@ -49,9 +49,13 @@ alias lvconfig="sudo vi /etc/lighttpd/sites-available/thoma127.test.sua.umn.edu.
 
 #tmux
 alias tsession="tmux new-session -s test"
+alias attach="tmux attach-session -t test" 
 
 #supervisor
 alias sup="sudo supervisorctl"
+alias suptb="sudo supervisorctl restart thoma127.test.sua.umn.edu#flask"
+alias supsua="sudo supervisorctl restart test.sua.umn.edu#flask"
+alias supapi="sudo supervisorctl restart test.sua.umn.edu#django"
 
 #fix permissions
 alias fap="sudo /usr/local/bin/scripts/fixallperms.sh"
