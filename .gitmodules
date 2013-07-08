@@ -37,3 +37,6 @@
 [submodule "submodules/vim-html5"]
 	path = submodules/vim-html5
 	url = git@github.com:othree/html5.vim.git
+[submodule "submodules/vim-airline"]
+	path = submodules/vim-airline
+	url = git@github.com:bling/vim-airline.git

@@ -29,9 +29,29 @@ set rulerformat=%55(%{strftime('%a\ %b\ %e\ %I:%M\ %p')}\ %5l,%-6(%c%V%)\ %P%)
 set background=dark
 set cursorline
 set scrolloff=3
+
+"" Show invisible characters as dots
+set list
+set listchars=tab:··,trail:·
+
 map <silent> <C-t> :tabe<space>
 map <silent> <C-p> :tabp<CR>
 map <silent> <C-n> :tabn<CR>
+
+"" Remap F1 to replace indenting spaces with tabs
+function! SpacesToTabs()
+	set noexpandtab
+	retab!
+endfunction
+nnoremap <silent> <F1> :call SpacesToTabs()<CR>
+
+"" Remap F2 to replace indenting tabs with spaces
+function! TabsToSpaces()
+	set expandtab
+	retab!
+endfunction
+nnoremap <silent> <F2> :call TabsToSpaces()<CR>
+
 colorscheme solarized
 syntax on
 au BufNewFile,BufRead *.twig set filetype=jinja
@@ -51,22 +71,22 @@ set noswapfile
 
 "Git branch
 function! GitBranch()
-    let branch = system("git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* //'")
-    if branch != ''
-        return '   Git Branch: ' . substitute(branch, '\n', '', 'g')
-    en
-    return ''
+	let branch = system("git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* //'")
+	if branch != ''
+		return '   Git Branch: ' . substitute(branch, '\n', '', 'g')
+	en
+	return ''
 endfunction
 
 function! CurDir()
-    return substitute(getcwd(), '/home/thoma127/', "~/", "g")
+	return substitute(getcwd(), '/home/thoma127/', "~/", "g")
 endfunction
 
 function! HasPaste()
-    if &paste
-        return 'PASTE MODE  '
-    en
-    return ''
+	if &paste
+		return 'PASTE MODE	'
+	en
+	return ''
 endfunction
 
 " Format the statusline
