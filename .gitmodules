@@ -40,3 +40,6 @@
 [submodule "submodules/vim-airline"]
 	path = submodules/vim-airline
 	url = git@github.com:bling/vim-airline.git
+[submodule "submodules/vim-fugitive"]
+	path = submodules/vim-fugitive
+	url = git@github.com:tpope/vim-fugitive.git
