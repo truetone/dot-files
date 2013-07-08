@@ -29,6 +29,7 @@ set rulerformat=%55(%{strftime('%a\ %b\ %e\ %I:%M\ %p')}\ %5l,%-6(%c%V%)\ %P%)
 set background=dark
 set cursorline
 set scrolloff=3
+set t_Co=256
 
 "" Show invisible characters as dots
 set list
