@@ -97,7 +97,7 @@ source /usr/local/bin/virtualenvwrapper.sh
 export LESS='-R'
 export LESSOPEN='|~/.lessfilter %s'
 
-alias tmux="TERM=screen-256color-bce tmux"
+alias tmux="TERM=screen-256color-bce tmux -2"
 
 alias hop=". hop $1"
 

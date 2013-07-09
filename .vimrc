@@ -32,7 +32,7 @@ set scrolloff=3
 set t_Co=256
 
 "" Show invisible characters as dots
-set list
+""set list
 set listchars=tab:··,trail:·
 
 map <silent> <C-t> :tabe<space>
@@ -51,7 +51,13 @@ function! TabsToSpaces()
 	set expandtab
 	retab!
 endfunction
+
 nnoremap <silent> <F2> :call TabsToSpaces()<CR>
+
+"" Remap F3 to remove whitespace at the end of each line
+nnoremap <silent> <F3> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
+
+nnoremap <silent> <F4> :set list! list?<CR>
 
 colorscheme solarized
 syntax on
@@ -61,9 +67,6 @@ au BufNewFile,BufRead /etc/lighttpd/*.conf,lighttpd.conf set filetype=lighttpd
 au BufNewFile,BufRead .bashrc*,bashrc,bash.bashrc,.bash_profile*,.bash_logout*,*.bash,*.ebuild call SetFileTypeSH("bash")
 call pathogen#infect()
 ":nnoremap <F5> :buffers<CR>:buffer<Space>
-
-"" Remap F3 to remove whitespace at the end of each line
-nnoremap <silent> <F3> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
 "" Do not use swap files
 set nobackup
