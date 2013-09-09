@@ -33,12 +33,13 @@ alias home="cd ~/"
 alias testbed="hop tony"
 alias tb="hop tony"
 alias sj="cd /www/thoma127.test.springjam.umn.edu"
+alias hc="cd /www/thoma127.test.homecoming.umn.edu"
 alias models="cd /www/thoma127.test.sua.umn.edu/models"
 alias pub="cd /www/thoma127.test.sua.umn.edu/public"
 
 #tailing
 alias tpe="tail -fn 40 /var/log/php/error.log"
-alias tfe="sudo supervisorctl tail thoma127.test.sua.umn.ed\#flask stderr"
+alias tfe="sudo supervisorctl tail thoma127.test.sua.umn.edu\#flask stderr"
 
 #python
 alias pylint="python -m py_compile"
@@ -62,3 +63,6 @@ alias fap="sudo /usr/local/bin/scripts/fixallperms.sh"
 
 #test.sua.umn.edu virtualenv
 alias testvenv="source /var/env/sua-test/bin/activate"
+
+#rsync the test uploads directory w/ mine
+alias test_pubsync="rsync -vur /www/test.sua.umn.edu/public/uploads/ /www/thoma127.test.sua.umn.edu/public/uploads/"

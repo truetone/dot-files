@@ -30,6 +30,7 @@ set background=dark
 set cursorline
 set scrolloff=3
 set t_Co=256
+set spell spelllang=en_us
 
 "" Show invisible characters as dots
 ""set list
@@ -72,6 +73,9 @@ call pathogen#infect()
 set nobackup
 set nowritebackup
 set noswapfile
+
+"" Format columns at 80 & 120 characters
+let &colorcolumn="80,".join(range(120,999),",")
 
 "Git branch
 function! GitBranch()
