@@ -1,4 +1,9 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =2
+let g:netrw_dirhist_cnt =7
 let g:netrw_dirhist_1='/www/thoma127.test.sua.umn.edu/apps/groups/second-floor/services'
 let g:netrw_dirhist_2='/www/thoma127.test.sua.umn.edu/apps/groups/second-floor/hours'
+let g:netrw_dirhist_3='/www/thoma127.test.sua.umn.edu/apps/templates/events'
+let g:netrw_dirhist_4='/www/thoma127.test.sua.umn.edu/apps/sua/blueprints'
+let g:netrw_dirhist_5='/www/thoma127.test.sua.umn.edu/apps/static/sass/bourbon'
+let g:netrw_dirhist_6='/www/thoma127.test.sua.umn.edu/apps/static/sass/bourbon/addons'
+let g:netrw_dirhist_7='/www/thoma127.test.sua.umn.edu/apps/static/sass/bourbon'
