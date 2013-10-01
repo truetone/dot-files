@@ -77,6 +77,7 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
+<<<<<<< HEAD
 # some more ls aliases
 alias ll='ls -alhF'
 alias la='ls -A'
@@ -120,22 +121,22 @@ alias rmvenv="pythonbrew venv delete"
 #alias aws="ssh -i ~/.keys/mwc13.pem ubuntu@ec2-50-19-58-219.compute-1.amazonaws.com"
 alias aws="ssh -i ~/.keys/mwc13.pem ubuntu@54.225.242.21"
 
+=======
+>>>>>>> master
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
+#if [ -f ~/.bash_aliases ]; then
+#    . ~/.bash_aliases
+#fi
+
+if [ -f ~/dotfiles/.bash_aliases ]; then
+    . ~/dotfiles/.bash_aliases
 fi
 
-# enable programmable completion features (you don't need to enable
-# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
-# sources /etc/bash.bashrc).
-if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
-    . /etc/bash_completion
-fi
-
+<<<<<<< HEAD
 # Update my ip address
 #php /var/www/html/bin/update_ip_files.php
 
@@ -146,8 +147,18 @@ fi
 #export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
 #export PROJECT_HOME=/www
 #source /usr/local/bin/virtualenvwrapper_lazy.sh
+=======
+export PATH=/usr/bin/python:$PATH
+export WORKON_HOME=/home/thoma127/.venvs
+export PROJECT_HOME=/www
+source /usr/local/bin/virtualenvwrapper.sh
+>>>>>>> master
 
-alias tmux="TERM=screen-256color-bce tmux"
+# Get colors in less
+export LESS='-R'
+export LESSOPEN='|~/.lessfilter %s'
+
+alias tmux="TERM=screen-256color-bce tmux -2"
 
 alias hop=". hop $1"
 
@@ -179,9 +190,42 @@ function proml {
 	local  LIGHT_GRAY="\[\033[0;37m\]"
 	#END OPTIONAL
 	local     DEFAULT="\[\033[0m\]"
-	PS1="\h:\W \u$BLUE\$(parse_git_branch) $DEFAULT\$"
+	PS1="\h:\W \u$BLUE\$(parse_git_branch) $LIGHT_GREEN\$"
 }
 
 proml
 
+<<<<<<< HEAD
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+=======
+# Completion wrapper from http://ubuntuforums.org/showthread.php?t=733397
+function completion-wrapper () {
+	local function_name="$2"
+	local arg_count=$(($#-3))
+	local comp_function_name="$1"
+	shift 2
+	local function="
+function $function_name {
+	((COMP_CWORD+=$arg_count))
+	COMP_WORDS=( "$@" \${COMP_WORDS[@]:1} )
+	"$comp_function_name"
+	return 0
+}"
+	eval "$function"
+	#echo $function_name
+	#echo "$function"
+}
+
+# Add completion to above aliases
+# complete -o bashdefault -o default -o nospace -F _git git
+completion-wrapper _git _co git checkout
+complete -o bashdefault -o default -o nospace -F _co co
+
+# enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
+    . /etc/bash_completion
+fi
+
+>>>>>>> master
