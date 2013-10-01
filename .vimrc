@@ -67,6 +67,8 @@ au BufNewFile,BufRead *.md set filetype=markdown
 au BufNewFile,BufRead /etc/lighttpd/*.conf,lighttpd.conf set filetype=lighttpd
 au BufRead,BufNewFile *.scss set filetype=scss
 au BufNewFile,BufRead .bashrc*,bashrc,bash.bashrc,.bash_profile*,.bash_logout*,*.bash,*.ebuild call SetFileTypeSH("bash")
+au BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm set ft=jinja
+au BufNewFile,BufRead *.j2 set filetype=jinja
 call pathogen#infect()
 ":nnoremap <F5> :buffers<CR>:buffer<Space>
 
