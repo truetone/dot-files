@@ -1,2 +1,11 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =0
+let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_1='/Users/thoma127/Sites/minnewebcon2013/.elasticbeanstalk'
+let g:netrw_dirhist_2='/Users/thoma127/Sites/minnewebcon2013/.git/modules'
+let g:netrw_dirhist_3='/Users/thoma127/Sites/minnewebcon2013/.git/modules/static'
+let g:netrw_dirhist_4='/Users/thoma127/Sites/minnewebcon2013/.git/modules/static/css'
+let g:netrw_dirhist_5='/Users/thoma127/Sites/minnewebcon2013/.git/modules/static/css/normalize'
+let g:netrw_dirhist_6='/Users/thoma127/Sites/ebwss'
+let g:netrw_dirhist_7='/Users/thoma127/Sites/crypt.sua.umn.edu/apps/content/renovation/renovation/scrapbook/2001/7-1'
+let g:netrw_dirhist_8='/Users/thoma127/Dropbox/F50/thefilthygpx'
+let g:netrw_dirhist_9='/Users/thoma127/Desktop/savina-code/Parachute - Literary Magazine/public_html'

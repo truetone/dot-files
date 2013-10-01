@@ -20,4 +20,5 @@ fi
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
-PATH="$PATH:/usr/local/bin/scripts"
+PATH="$PATH:/usr/local/bin/scripts:/Users/thoma127/.eb/eb/macosx/python2.7"
+# PATH="$PATH:/Users/thoma127/.eb/eb/macosx/python2.7/eb"

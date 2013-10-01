@@ -25,3 +25,15 @@
 [submodule "submodules/vim-css3-synta"]
 	path = submodules/vim-css3-synta
 	url = https://github.com/hail2u/vim-css3-syntax.git
+[submodule "submodules/solarized"]
+	path = submodules/solarized
+	url = https://github.com/tomislav/osx-lion-terminal.app-colors-solarized.git
+[submodule ".vim/bundle/vim-colors-solarized"]
+	path = .vim/bundle/vim-colors-solarized
+	url = https://github.com/altercation/vim-colors-solarized.git
+[submodule "vim-pathogen"]
+	path = vim-pathogen
+	url = https://github.com/tpope/vim-pathogen.git
+[submodule "submodules/vim-airline"]
+	path = submodules/vim-airline
+	url = git@github.com:bling/vim-airline.git

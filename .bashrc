@@ -2,6 +2,8 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+[[ -s "$HOME/.pythonbrew/etc/bashrc" ]] && source "$HOME/.pythonbrew/etc/bashrc"
+
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
@@ -106,6 +108,18 @@ alias gb="git branch"
 # aliases for moving around
 alias home="cd ~/"
 
+# pythonbrew venv aliases
+alias mkvenv="pythonbrew venv create"
+alias lvenv="pythonbrew venv list"
+alias workon="pythonbrew venv use"
+alias rmvenv="pythonbrew venv delete"
+
+# aws
+#alias aws="ssh -i ~/.keys/mwc13.pem ec2-54-225-242-21.compute-1.amazonaws.com"
+#alias aws="ssh -i ~/.keys/mwc13.pem ec2-50-19-58-219.compute-1.amazonaws.com"
+#alias aws="ssh -i ~/.keys/mwc13.pem ubuntu@ec2-50-19-58-219.compute-1.amazonaws.com"
+alias aws="ssh -i ~/.keys/mwc13.pem ubuntu@54.225.242.21"
+
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
@@ -126,12 +140,12 @@ fi
 #php /var/www/html/bin/update_ip_files.php
 
 # Virtualenv info
-export PATH=/usr/bin/python:$PATH
-export WORKON_HOME=/var/env
+#export PATH=/usr/bin/python:$PATH
+#export WORKON_HOME=/var/env
 #export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
 #export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
-export PROJECT_HOME=/www
-source /usr/local/bin/virtualenvwrapper_lazy.sh
+#export PROJECT_HOME=/www
+#source /usr/local/bin/virtualenvwrapper_lazy.sh
 
 alias tmux="TERM=screen-256color-bce tmux"
 
@@ -169,3 +183,5 @@ function proml {
 }
 
 proml
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
