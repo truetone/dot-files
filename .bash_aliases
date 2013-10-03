@@ -111,13 +111,6 @@ proml
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 [[ -s "$HOME/.pythonbrew/etc/bashrc" ]] && source "$HOME/.pythonbrew/etc/bashrc"
-=======
-alias testbed="hop tony"
-alias tb="hop tony"
-alias sj="cd /www/thoma127.test.springjam.umn.edu"
-alias hc="cd /www/thoma127.test.homecoming.umn.edu"
-alias models="cd /www/thoma127.test.sua.umn.edu/models"
-alias pub="cd /www/thoma127.test.sua.umn.edu/public"
 
 #tailing
 alias tpe="tail -fn 40 /var/log/php/error.log"

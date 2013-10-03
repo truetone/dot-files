@@ -133,21 +133,6 @@ if [ -f ~/dotfiles/.bash_aliases ]; then
     . ~/dotfiles/.bash_aliases
 fi
 
-# Update my ip address
-#php /var/www/html/bin/update_ip_files.php
-
-# Virtualenv info
-#export PATH=/usr/bin/python:$PATH
-#export WORKON_HOME=/var/env
-#export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
-#export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
-#export PROJECT_HOME=/www
-#source /usr/local/bin/virtualenvwrapper_lazy.sh
-export PATH=/usr/bin/python:$PATH
-export WORKON_HOME=/home/thoma127/.venvs
-export PROJECT_HOME=/www
-source /usr/local/bin/virtualenvwrapper.sh
-
 # Get colors in less
 export LESS='-R'
 export LESSOPEN='|~/.lessfilter %s'
