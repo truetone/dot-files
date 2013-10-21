@@ -60,6 +60,12 @@ nnoremap <silent> <F3> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
 nnoremap <silent> <F4> :set list! list?<CR>
 
+"" Convert 2-space tabs to 4-space
+nnoremap <silent> <F5> :%s/^\s*/&&/g<CR>
+
+"" Wrap reload .vimrc w/o restarting.
+nnoremap <silent> <F6> :so $MYVIMRC<CR>
+
 colorscheme solarized
 syntax on
 au BufNewFile,BufRead *.twig set filetype=jinja

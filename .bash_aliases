@@ -27,6 +27,7 @@ alias phog="git push origin grants"
 alias glog="git log --stat"
 alias merge="git merge --no-ff"
 alias gb="git branch"
+alias grmd="git ls-files --deleted -z | xargs -0 git rm"
 
 # aliases for moving around
 alias home="cd ~/"
@@ -36,6 +37,10 @@ alias sj="cd /www/thoma127.test.springjam.umn.edu"
 alias hc="cd /www/thoma127.test.homecoming.umn.edu"
 alias models="cd /www/thoma127.test.sua.umn.edu/models"
 alias pub="cd /www/thoma127.test.sua.umn.edu/public"
+alias content="cd /www/thoma127.test.sua.umn.edu/apps/content"
+
+# connect to Browncoat
+alias b="ssh sua.umn.edu"
 
 #tailing
 alias tpe="tail -fn 40 /var/log/php/error.log"
