@@ -3,8 +3,8 @@ alias la='ls -A'
 alias l='ls -CF'
 
 # some grep aliases
-alias greps="grep -rn --include '*.css' --include '*.scss' --include '*.sass' --include '*.py' --include '*.js' --include '*.php' --include '*.html' --include '*.txt' --exclude-dir 'cache' --exclude-dir 'prepared' --exclude-dir 'Cache' --exclude-dir 'tests'"
-alias grepi="grep -rin --include '*.css' --include '*.scss' --include '*.sass' --include '*.py' --include '*.js' --include '*.php' --include '*.html' --include '*.txt' --exclude-dir 'cache' --exclude-dir 'prepared' --exclude-dir 'Cache' --exclude-dir 'tests'"
+alias greps="grep -rn --include '*.rst' --include '*.css' --include '*.scss' --include '*.sass' --include '*.py' --include '*.js' --include '*.php' --include '*.html' --include '*.txt' --exclude-dir 'cache' --exclude-dir 'prepared' --exclude-dir 'Cache' --exclude-dir 'tests'"
+alias grepi="grep -rin --include '*.rst' --include '*.css' --include '*.scss' --include '*.sass' --include '*.py' --include '*.js' --include '*.php' --include '*.html' --include '*.txt' --exclude-dir 'cache' --exclude-dir 'prepared' --exclude-dir 'Cache' --exclude-dir 'tests'"
 alias grep_php="grep -rin --include '*.php' --exclude-dir 'cache' --exclude-dir 'prepared' --exclude-dir 'Cache' --exclude-dir 'tests'"
 alias grep_css="grep -rin --include '*.css' --exclude-dir 'cache' --exclude-dir 'tests'"
 alias grep_js="grep -rin --include '*.js' --exclude-dir 'cache' --exclude-dir 'tests'"
@@ -22,12 +22,12 @@ alias plod="git pull origin develop"
 alias phod="git push origin develop"
 alias plom="git pull origin master"
 alias phom="git push origin master"
-alias plog="git pull origin grants"
-alias phog="git push origin grants"
+alias plog="git pull origin groups"
+alias phog="git push origin groups"
 alias glog="git log --stat"
 alias merge="git merge --no-ff"
 alias gb="git branch"
-alias grmd="git ls-files --deleted -z | xargs -0 git rm"
+alias grmd="git ls-files --deleted -z | xargs -0 git rm" # Removes files deleted outside of git
 
 # aliases for moving around
 alias home="cd ~/"
@@ -38,6 +38,7 @@ alias hc="cd /www/thoma127.test.homecoming.umn.edu"
 alias models="cd /www/thoma127.test.sua.umn.edu/models"
 alias pub="cd /www/thoma127.test.sua.umn.edu/public"
 alias content="cd /www/thoma127.test.sua.umn.edu/apps/content"
+alias api="cd /www/testapi.sua.umn.edu/"
 
 # connect to Browncoat
 alias b="ssh sua.umn.edu"

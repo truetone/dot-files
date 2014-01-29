@@ -23,7 +23,7 @@ set antialias
 set autoindent
 set shiftwidth=4
 set tabstop=4
-set noexpandtab
+set expandtab
 set ea
 set rulerformat=%55(%{strftime('%a\ %b\ %e\ %I:%M\ %p')}\ %5l,%-6(%c%V%)\ %P%)
 set background=dark

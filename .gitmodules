@@ -46,3 +46,6 @@
 [submodule "submodules/html5-syntax"]
 	path = submodules/html5-syntax
 	url = git@github.com:othree/html5-syntax.vim.git
+[submodule ".vim/bundle/vim-flake8"]
+	path = .vim/bundle/vim-flake8
+	url = git@github.com:nvie/vim-flake8.git
