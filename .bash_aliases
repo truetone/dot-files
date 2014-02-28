@@ -60,6 +60,7 @@ alias aws="ssh -i ~/.keys/mwc13.pem ubuntu@54.225.242.21"
 alias ll='ls -la'
 alias i="ssh independents.sua.umn.edu"
 alias b="ssh browncoat.sua.umn.edu"
+alias gitm="ssh truetone@162.243.51.142"
 
 # moving around
 alias home="cd ~/"
@@ -124,8 +125,8 @@ alias lreload="sudo /etc/init.d/lighttpd reload"
 alias lvconfig="sudo vi /etc/lighttpd/sites-available/thoma127.test.sua.umn.edu.conf"
 
 #tmux
-alias tsession="tmux new-session -s test"
-alias attach="tmux attach-session -t test" 
+alias tsession="tmux new-session -s local"
+alias attach="tmux attach-session -t local" 
 
 #supervisor
 alias sup="sudo supervisorctl"

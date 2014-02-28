@@ -109,3 +109,9 @@ proml
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 [[ -s "$HOME/.pythonbrew/etc/bashrc" ]] && source "$HOME/.pythonbrew/etc/bashrc"
+
+function uttb { scp "$1" test.sua.umn.edu:/www/thoma127.test.sua.umn.edu/apps/"$2"; }
+function uttp { scp "$1" test.sua.umn.edu:/www/thoma127.test.sua.umn.edu/public/"$2"; }
+function uthc { scp "$1" test.sua.umn.edu:/www/thoma127.test.homecoming.umn.edu/homecoming/"$2"; }
+function utsj { scp "$1" test.sua.umn.edu:/www/thoma127.test.springjam.umn.edu/apps/"$2"; }
+function utcs { scp "$1" test.sua.umn.edu:/www/test.commstation.sua.umn.edu/apps/"$2"; }
