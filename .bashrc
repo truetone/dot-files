@@ -177,3 +177,27 @@ function unmark {
 function marks {
     ls -l "$MARKPATH" | sed 's/  / /g' | cut -d' ' -f9- | sed 's/ -/\t-/g' && echo
 }
+
+function full_deploy_and_rm {
+    echo "Are you sure about this?"
+    select yn in "Yes" "No"; do
+        case $yn in
+            Yes ) /usr/local/bin/fab test_deploy:"$1" deploy:"$1" rmbranch:"$1"; break;;
+            No ) echo "Better safe than sorry."; break;;
+            * )
+        esac
+    done
+    
+}
+
+function deploy_test_prod {
+    echo "Are you sure about this?"
+    select yn in "Yes" "No"; do
+        case $yn in
+            Yes ) /usr/local/bin/fab test_deploy:"$1" deploy:"$1"; break;;
+            No ) echo "Better safe than sorry."; break;;
+            * )
+        esac
+    done
+    
+}

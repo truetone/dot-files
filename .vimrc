@@ -22,7 +22,9 @@ set hlsearch
 set antialias
 set autoindent
 set shiftwidth=4
+set shiftround    " round indent to multiple of 'shiftwidth'
 set tabstop=4
+set softtabstop=4 " insert/delete 4 spaces when hitting a TAB/BACKSPACE
 set expandtab
 set ea
 set rulerformat=%55(%{strftime('%a\ %b\ %e\ %I:%M\ %p')}\ %5l,%-6(%c%V%)\ %P%)
@@ -103,3 +105,6 @@ function! HasPaste()
 	en
 	return ''
 endfunction
+
+"" Call Flake8 after saving a python source file
+"" autocmd BufWritePost *.py call Flake8()
