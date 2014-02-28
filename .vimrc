@@ -22,8 +22,10 @@ set hlsearch
 set antialias
 set autoindent
 set shiftwidth=4
+set shiftround    " round indent to multiple of 'shiftwidth'
 set tabstop=4
-set noexpandtab
+set softtabstop=4 " insert/delete 4 spaces when hitting a TAB/BACKSPACE
+set expandtab
 set ea
 set rulerformat=%55(%{strftime('%a\ %b\ %e\ %I:%M\ %p')}\ %5l,%-6(%c%V%)\ %P%)
 set background=dark
@@ -59,6 +61,12 @@ nnoremap <silent> <F2> :call TabsToSpaces()<CR>
 nnoremap <silent> <F3> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
 nnoremap <silent> <F4> :set list! list?<CR>
+
+"" Convert 2-space tabs to 4-space
+nnoremap <silent> <F5> :%s/^\s*/&&/g<CR>
+
+"" Wrap reload .vimrc w/o restarting.
+nnoremap <silent> <F6> :so $MYVIMRC<CR>
 
 colorscheme solarized
 syntax on
@@ -97,3 +105,6 @@ function! HasPaste()
 	en
 	return ''
 endfunction
+
+"" Call Flake8 after saving a python source file
+"" autocmd BufWritePost *.py call Flake8()

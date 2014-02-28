@@ -164,3 +164,41 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
+# http://jeroenjanssens.com/2013/08/16/quickly-navigate-your-filesystem-from-the-command-line.html
+export MARKPATH=$HOME/.marks
+function jump { 
+    cd -P "$MARKPATH/$1" 2>/dev/null || echo "No such mark: $1"
+}
+function mark { 
+    mkdir -p "$MARKPATH"; ln -s "$(pwd)" "$MARKPATH/$1"
+}
+function unmark { 
+    rm -i "$MARKPATH/$1"
+}
+function marks {
+    ls -l "$MARKPATH" | sed 's/  / /g' | cut -d' ' -f9- | sed 's/ -/\t-/g' && echo
+}
+
+function full_deploy_and_rm {
+    echo "Are you sure about this?"
+    select yn in "Yes" "No"; do
+        case $yn in
+            Yes ) /usr/local/bin/fab test_deploy:"$1" deploy:"$1" rmbranch:"$1"; break;;
+            No ) echo "Better safe than sorry."; break;;
+            * )
+        esac
+    done
+    
+}
+
+function deploy_test_prod {
+    echo "Are you sure about this?"
+    select yn in "Yes" "No"; do
+        case $yn in
+            Yes ) /usr/local/bin/fab test_deploy:"$1" deploy:"$1"; break;;
+            No ) echo "Better safe than sorry."; break;;
+            * )
+        esac
+    done
+    
+}
