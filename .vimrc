@@ -22,12 +22,13 @@ set hlsearch
 set antialias
 set autoindent
 set shiftwidth=4
+set shiftround    " round indent to multiple of 'shiftwidth'
 set tabstop=4
-set noexpandtab
+set softtabstop=4 " insert/delete 4 spaces when hitting a TAB/BACKSPACE
+set expandtab
 set ea
 set rulerformat=%55(%{strftime('%a\ %b\ %e\ %I:%M\ %p')}\ %5l,%-6(%c%V%)\ %P%)
 set background=dark
-"set background=light
 set cursorline
 set scrolloff=3
 set t_Co=256
@@ -61,24 +62,19 @@ nnoremap <silent> <F3> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
 nnoremap <silent> <F4> :set list! list?<CR>
 
-"" Convert 2 space tabs to 4 space tabs
+"" Convert 2-space tabs to 4-space
 nnoremap <silent> <F5> :%s/^\s*/&&/g<CR>
 
-"" Reload the .vimrc file w/o closing vim
+"" Wrap reload .vimrc w/o restarting.
 nnoremap <silent> <F6> :so $MYVIMRC<CR>
 
-syntax on
-"let g:solarized_termcolors=256
 colorscheme solarized
-
+syntax on
 au BufNewFile,BufRead *.twig set filetype=jinja
 au BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm,*.j2 set ft=jinja
 au BufNewFile,BufRead *.md set filetype=markdown
 au BufNewFile,BufRead /etc/lighttpd/*.conf,lighttpd.conf set filetype=lighttpd
-au BufRead,BufNewFile *.scss set filetype=scss
 au BufNewFile,BufRead .bashrc*,bashrc,bash.bashrc,.bash_profile*,.bash_logout*,*.bash,*.ebuild call SetFileTypeSH("bash")
-au BufNewFile,BufRead *.j2 set filetype=jinja
-au BufRead,BufNewFile *.tumblr set filetype=tumblr
 call pathogen#infect()
 ":nnoremap <F5> :buffers<CR>:buffer<Space>
 
@@ -109,3 +105,6 @@ function! HasPaste()
 	en
 	return ''
 endfunction
+
+"" Call Flake8 after saving a python source file
+"" autocmd BufWritePost *.py call Flake8()
