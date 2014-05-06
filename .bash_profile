@@ -26,7 +26,7 @@ alias grep_py="grep -rin --include '*.py'"
 # handy git aliases
 alias dev="git checkout develop"
 alias mas="git checkout master"
-alias st="git status"
+alias st="git status -sb"
 alias co="git checkout"
 alias add="git add"
 alias cmt="git commit"
@@ -35,8 +35,10 @@ alias phod="git push origin develop"
 alias plom="git pull origin master"
 alias phom="git push origin master"
 alias glog="git log --stat"
+alias gprettylog="git log --all --graph --pretty=format:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
 alias merge="git merge --no-ff"
 alias gb="git branch"
+alias grmd="git ls-files --deleted -z | xargs -0 git rm" # Removes files deleted outside of git
 
 # aliases for moving around
 alias home="cd ~/"
@@ -51,7 +53,7 @@ alias rmvenv="pythonbrew venv delete"
 #alias aws="ssh -i ~/.keys/mwc13.pem ec2-54-225-242-21.compute-1.amazonaws.com"
 #alias aws="ssh -i ~/.keys/mwc13.pem ec2-50-19-58-219.compute-1.amazonaws.com"
 #alias aws="ssh -i ~/.keys/mwc13.pem ubuntu@ec2-50-19-58-219.compute-1.amazonaws.com"
-alias aws="ssh -i ~/.keys/mwc13.pem ubuntu@54.225.242.21"
+#alias aws="ssh -i ~/.keys/mwc13.pem ubuntu@54.225.242.21"
 
 
 # Aliases
@@ -66,6 +68,7 @@ alias desktop="cd ~/Desktop"
 alias docs="cd ~/Documents"
 alias sj="cd ~/Sites/springjam.umn.edu"
 alias mwc="cd ~/Sites/minnewebcon2013"
+alias tdir="cd ~/Sites/touch-directory"
 
 # Archiving
 alias cryptp="wget -E -H -k -K -p -nd"
@@ -109,6 +112,7 @@ proml
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 [[ -s "$HOME/.pythonbrew/etc/bashrc" ]] && source "$HOME/.pythonbrew/etc/bashrc"
+if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 
 function uttb { scp "$1" test.sua.umn.edu:/www/thoma127.test.sua.umn.edu/apps/"$2"; }
 function uttp { scp "$1" test.sua.umn.edu:/www/thoma127.test.sua.umn.edu/public/"$2"; }

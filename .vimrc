@@ -72,6 +72,7 @@ colorscheme solarized
 syntax on
 au BufNewFile,BufRead *.twig set filetype=jinja
 au BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm,*.j2 set ft=jinja
+au BufNewFile,BufRead *.js set ft=javascript
 au BufNewFile,BufRead *.md set filetype=markdown
 au BufNewFile,BufRead /etc/lighttpd/*.conf,lighttpd.conf set filetype=lighttpd
 au BufNewFile,BufRead .bashrc*,bashrc,bash.bashrc,.bash_profile*,.bash_logout*,*.bash,*.ebuild call SetFileTypeSH("bash")
@@ -108,3 +109,5 @@ endfunction
 
 "" Call Flake8 after saving a python source file
 "" autocmd BufWritePost *.py call Flake8()
+
+au FileType javascript call JavaScriptFold()
