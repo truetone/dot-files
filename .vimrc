@@ -97,7 +97,7 @@ function! GitBranch()
 endfunction
 
 function! CurDir()
-	return substitute(getcwd(), '/home/thoma127/', "~/", "g")
+	return substitute(getcwd(), '/Users/thoma127/', "~/", "g")
 endfunction
 
 function! HasPaste()
@@ -108,6 +108,6 @@ function! HasPaste()
 endfunction
 
 "" Call Flake8 after saving a python source file
-"" autocmd BufWritePost *.py call Flake8()
+""autocmd BufWritePost *.py :call Flake8()
 
 au FileType javascript call JavaScriptFold()

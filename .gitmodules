@@ -76,3 +76,12 @@
 [submodule ".vim/bundle/vim-liquide"]
 	path = .vim/bundle/vim-liquide
 	url = git@github.com:tpope/vim-liquid.git
+[submodule ".vim/bundle/python-mode"]
+	path = .vim/bundle/python-mode
+	url = https://github.com/klen/python-mode
+[submodule ".vim/bundle/emmet-vim"]
+	path = .vim/bundle/emmet-vim
+	url = https://github.com/mattn/emmet-vim.git
+[submodule ".vim/bundle/dash-vim"]
+	path = .vim/bundle/dash-vim
+	url = git@github.com:rizzatti/dash.vim.git

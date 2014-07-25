@@ -6,12 +6,15 @@
 	diff = auto
 	interactive = auto
 	status = auto
-	ui = 1
+	ui = auto
 
 [core]
 	editor = vim
+	mergeoptions = --no-edit
 
 [merge]
 	tool = vimdiff
+    commit = no
+	ff = false
 [branch]
 	autosetupmerge = true

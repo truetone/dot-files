@@ -36,7 +36,7 @@ alias plom="git pull origin master"
 alias phom="git push origin master"
 alias glog="git log --stat"
 alias gprettylog="git log --all --graph --pretty=format:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
-alias merge="git merge --no-ff"
+alias merge="git merge"
 alias gb="git branch"
 alias grmd="git ls-files --deleted -z | xargs -0 git rm" # Removes files deleted outside of git
 
@@ -69,9 +69,27 @@ alias docs="cd ~/Documents"
 alias sj="cd ~/Sites/springjam.umn.edu"
 alias mwc="cd ~/Sites/minnewebcon2013"
 alias tdir="cd ~/Sites/touch-directory"
+alias vague="cd ~/Sites/vague"
+
+# tmux
+
+alias attach="tmux a -t"
 
 # Archiving
 alias cryptp="wget -E -H -k -K -p -nd"
+
+#Python simple server
+
+alias pyserve="python -m SimpleHTTPServer"
+
+
+# Vagrant aliases
+
+alias rsf='cd ~/Sites/vague;ssh vague supervisorctl restart sua.umn.edu#flask;cd - >/dev/null'
+alias rsd='cd ~/Sites/vague;ssh vague supervisorctl restart sua.umn.edu#django;cd - >/dev/null'
+alias rad='cd ~/Sites/vague;ssh vague-api supervisorctl restart api.sua.umn.edu#django;cd - >/dev/null'
+alias v='cd ~/Sites/vague;ssh vague;cd - >/dev/null'
+alias vapi='cd ~/Sites/vague;ssh vague-api;cd - >/dev/null'
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
@@ -119,3 +137,5 @@ function uttp { scp "$1" test.sua.umn.edu:/www/thoma127.test.sua.umn.edu/public/
 function uthc { scp "$1" test.sua.umn.edu:/www/thoma127.test.homecoming.umn.edu/homecoming/"$2"; }
 function utsj { scp "$1" test.sua.umn.edu:/www/thoma127.test.springjam.umn.edu/apps/"$2"; }
 function utcs { scp "$1" test.sua.umn.edu:/www/test.commstation.sua.umn.edu/apps/"$2"; }
+
+source `brew --prefix git`/etc/bash_completion.d/git-completion.bash

@@ -142,3 +142,4 @@ alias testvenv="source /var/env/sua-test/bin/activate"
 
 #rsync the test uploads directory w/ mine
 alias test_pubsync="rsync -vur /www/test.sua.umn.edu/public/uploads/ /www/thoma127.test.sua.umn.edu/public/uploads/"
+

@@ -22,3 +22,5 @@ if [ -d "$HOME/bin" ] ; then
 fi
 PATH="$PATH:/usr/local/bin/scripts:/Users/thoma127/.eb/eb/macosx/python2.7"
 # PATH="$PATH:/Users/thoma127/.eb/eb/macosx/python2.7/eb"
+export PATH=$PATH:/Users/thoma127/Sites/vague/sites
+export PATH=$PATH:/Users/thoma127/Sites/vague/sites
