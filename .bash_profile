@@ -60,16 +60,27 @@ alias rmvenv="pythonbrew venv delete"
 alias ll='ls -la'
 alias i="ssh independents.sua.umn.edu"
 alias b="ssh browncoat.sua.umn.edu"
+alias r="ssh reaver.sua.umn.edu"
+alias s="ssh shepherd.sua.umn.edu"
+
+#provisioning
+alias provision_test_sua="ansible-playbook -i test -l shepherd.sua.umn.edu -t sua -K all.yml"
+alias provision_test_hc="ansible-playbook -i test -l shepherd.sua.umn.edu -t homecoming -K all.yml"
+alias provision_test_sj="ansible-playbook -i test -l shepherd.sua.umn.edu -t springjam -K all.yml"
+alias provision_prod_sua="ansible-playbook -i prod -l reaver.sua.umn.edu -t sua -K all.yml"
+alias provision_prod_hc="ansible-playbook -i prod -l reaver.sua.umn.edu -t homecoming -K all.yml"
+alias provision_prod_sj="ansible-playbook -i prod -l reaver.sua.umn.edu -t springjam -K all.yml"
 
 # moving around
 alias home="cd ~/"
-alias sites="cd ~/Sites"
+alias sites="cd ~/Sites/vague/sites"
 alias desktop="cd ~/Desktop"
 alias docs="cd ~/Documents"
 alias sj="cd ~/Sites/springjam.umn.edu"
 alias mwc="cd ~/Sites/minnewebcon2013"
 alias tdir="cd ~/Sites/touch-directory"
 alias vague="cd ~/Sites/vague"
+alias ans="cd ~/Sites/vague/ansible"
 
 # tmux
 
@@ -123,7 +134,7 @@ function proml {
 	local  LIGHT_GRAY="\[\033[0;37m\]"
 	#END OPTIONAL
 	local     DEFAULT="\[\033[0m\]"
-	PS1="\h:\W \u$BLUE\$(parse_git_branch) $DEFAULT\$"
+	PS1="$RED\h:$LIGHT_GRAY\W $GREEN\u$BLUE\$(parse_git_branch) $DEFAULT\$"
 }
 
 proml
@@ -132,10 +143,72 @@ proml
 [[ -s "$HOME/.pythonbrew/etc/bashrc" ]] && source "$HOME/.pythonbrew/etc/bashrc"
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 
-function uttb { scp "$1" test.sua.umn.edu:/www/thoma127.test.sua.umn.edu/apps/"$2"; }
-function uttp { scp "$1" test.sua.umn.edu:/www/thoma127.test.sua.umn.edu/public/"$2"; }
-function uthc { scp "$1" test.sua.umn.edu:/www/thoma127.test.homecoming.umn.edu/homecoming/"$2"; }
-function utsj { scp "$1" test.sua.umn.edu:/www/thoma127.test.springjam.umn.edu/apps/"$2"; }
-function utcs { scp "$1" test.sua.umn.edu:/www/test.commstation.sua.umn.edu/apps/"$2"; }
+#function uttb { scp "$1" test.sua.umn.edu:/www/thoma127.test.sua.umn.edu/apps/"$2"; }
+#function uttp { scp "$1" test.sua.umn.edu:/www/thoma127.test.sua.umn.edu/public/"$2"; }
+#function uthc { scp "$1" test.sua.umn.edu:/www/thoma127.test.homecoming.umn.edu/homecoming/"$2"; }
+#function utsj { scp "$1" test.sua.umn.edu:/www/thoma127.test.springjam.umn.edu/apps/"$2"; }
+#function utcs { scp "$1" test.sua.umn.edu:/www/test.commstation.sua.umn.edu/apps/"$2"; }
 
 source `brew --prefix git`/etc/bash_completion.d/git-completion.bash
+
+#alias provision_prod_sj="ansible-playbook -i prod -l reaver.sua.umn.edu -t springjam -K all.yml"
+
+function ansible_deploy {
+    echo "Are you sure you are ready to deploy?"
+    select yn in "Yes" "No";
+    do
+        echo "Switching to ansible directory."
+        cd ~/Sites/vague/ansible;
+        case $yn in
+            Yes ) echo "Choose an environment for deployment."
+                select env in "test" "prod" "staging" "api";
+                do
+                    if [ $env = "test" ]; then
+                        subdomain="shepherd"
+                    elif [$env = "staging"]; then
+                        subdomain="reaver"
+                    else
+                        subdomain="api"
+                    fi
+
+                    echo "Choose a site or select \"All.\""
+                    select site in "sua" "homecoming" "springjam" "all";
+                    do
+                        if [ $site = "all" ]; then
+                            echo "Running the command for all sites."
+                            ansible-playbook -i "$env" -l "$subdomain".sua.umn.edu -K all.yml
+                        else
+                            echo "Running ansible-playbook -i $env -l $subdomain.sua.umn.edu -t $site -K all.yml;"
+                            ansible-playbook -i "$env" -l "$subdomain".sua.umn.edu -t "$site" -K all.yml;
+                        fi
+                    done
+                done;;
+            No ) echo "Better safe than sorry."; break;;
+            * )
+        esac
+    done
+    $SHELL
+}
+
+# http://jeroenjanssens.com/2013/08/16/quickly-navigate-your-filesystem-from-the-command-line.html
+export MARKPATH=$HOME/.marks
+function hop { 
+    cd -P "$MARKPATH/$1" 2>/dev/null || echo "No such mark: $1"
+}
+function mark { 
+    mkdir -p "$MARKPATH"; ln -s "$(pwd)" "$MARKPATH/$1"
+}
+function unmark { 
+    rm -i "$MARKPATH/$1"
+}
+function marks {
+    \ls -l "$MARKPATH" | tail -n +2 | sed 's/  / /g' | cut -d' ' -f9- | awk -F ' -> ' '{printf "%-10s -> %s\n", $1, $2}'
+}
+_completemarks() {
+  local curw=${COMP_WORDS[COMP_CWORD]}
+  local wordlist=$(find $MARKPATH -type l -printf "%f\n")
+  COMPREPLY=($(compgen -W '${wordlist[@]}' -- "$curw"))
+  return 0
+}
+
+complete -F _completemarks jump unmark
