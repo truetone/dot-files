@@ -1,3 +1,5 @@
+screenfetch
+
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 
@@ -165,7 +167,7 @@ function ansible_deploy {
                 do
                     if [ $env = "test" ]; then
                         subdomain="shepherd"
-                    elif [$env = "staging"]; then
+                    elif [ $env = "staging" ]; then
                         subdomain="reaver"
                     else
                         subdomain="api"
@@ -175,19 +177,35 @@ function ansible_deploy {
                     select site in "sua" "homecoming" "springjam" "all";
                     do
                         if [ $site = "all" ]; then
-                            echo "Running the command for all sites."
-                            ansible-playbook -i "$env" -l "$subdomain".sua.umn.edu -K all.yml
+                            echo "Running 'ansible-playbook -i $env -l $subdomain.sua.umn.edu -K all.yml"
+                            echo "Are you sure you want to continue?"
+                            select cont in "Yes" "No";
+                            do
+                                if [ $cont = "Yes" ]; then
+                                    ansible-playbook -i "$env" -l "$subdomain".sua.umn.edu -K all.yml; return 1;
+                                else
+                                    echo "OK."; return 1;
+                                fi
+                            done;
                         else
                             echo "Running ansible-playbook -i $env -l $subdomain.sua.umn.edu -t $site -K all.yml;"
-                            ansible-playbook -i "$env" -l "$subdomain".sua.umn.edu -t "$site" -K all.yml;
+                            echo "Are you sure you want to continue?"
+                            select cont in "Yes" "No";
+                            do
+                                if [ $cont = "Yes" ]; then
+                                    ansible-playbook -i "$env" -l "$subdomain".sua.umn.edu -t "$site" -K all.yml;
+                                else
+                                    echo "OK.";
+                                fi
+                            done;
                         fi
-                    done
-                done;;
-            No ) echo "Better safe than sorry."; break;;
+                    done;
+                done; return 1;;
+            No ) echo "Better safe than sorry."; return 1;;
             * )
         esac
     done
-    $SHELL
+    return 1;
 }
 
 # http://jeroenjanssens.com/2013/08/16/quickly-navigate-your-filesystem-from-the-command-line.html
