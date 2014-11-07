@@ -4,6 +4,12 @@ export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 
 PATH="/usr/local/bin:/usr/bin:/usr/local/lib:/usr/local/sbin:${PATH}"
+export PATH="$HOME/.tmuxifier/bin:$PATH"
+
+EDITOR="/usr/local/bin/gvim"
+
+# tmuxifier
+eval "$(tmuxifier init -)"
 
 # Virtualenv info
 #export VIRTUALENVWRAPPER_PYTHON=/Users/thoma127/.pythonbrew/pythons/Python-2.7.2/bin/python
@@ -61,7 +67,8 @@ alias rmvenv="pythonbrew venv delete"
 # Aliases
 alias ll='ls -la'
 alias i="ssh independents.sua.umn.edu"
-alias b="ssh browncoat.sua.umn.edu"
+#alias b="ssh browncoat.sua.umn.edu"
+alias b="ssh bluesun.sua.umn.edu"
 alias r="ssh reaver.sua.umn.edu"
 alias s="ssh shepherd.sua.umn.edu"
 

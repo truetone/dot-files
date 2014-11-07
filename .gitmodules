@@ -85,3 +85,6 @@
 [submodule ".vim/bundle/dash-vim"]
 	path = .vim/bundle/dash-vim
 	url = git@github.com:rizzatti/dash.vim.git
+[submodule ".vim/bundle/closetag.vim"]
+	path = .vim/bundle/closetag.vim
+	url = git@github.com:vim-scripts/closetag.vim.git

@@ -111,3 +111,7 @@ endfunction
 ""autocmd BufWritePost *.py :call Flake8()
 
 au FileType javascript call JavaScriptFold()
+
+if has("gui_macvim") || has("gui_vimr")
+   set guifont=InputMono:h13
+endif

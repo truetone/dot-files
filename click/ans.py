@@ -11,7 +11,8 @@ def abort_if_false(ctx, param, value):
 
 
 def run_cmd(cmd):
-    subprocess.call(cmd)
+    c = 'echo %s' % cmd
+    subprocess.call(c)
 
 
 @click.command()
@@ -28,6 +29,7 @@ def init(env, tags):
 
     cmd_message = "Running: %s" % cmd
     click.echo(cmd_message)
+    run_cmd(cmd)
     click.echo('Success!')
 
 if __name__ == '__main__':
