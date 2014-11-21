@@ -10,13 +10,7 @@ EDITOR="/usr/local/bin/gvim"
 
 # tmuxifier
 eval "$(tmuxifier init -)"
-
-# Virtualenv info
-#export VIRTUALENVWRAPPER_PYTHON=/Users/thoma127/.pythonbrew/pythons/Python-2.7.2/bin/python
-#export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
-#export WORKON_HOME=/Users/thoma127/Sites/envs
-#export PROJECT_HOME=/Users/thoma127/Sites
-#source /usr/local/bin/virtualenvwrapper.sh
+alias v='tmuxifier load-session vague'
 
 # some more ls aliases
 alias ll='ls -alhF'
@@ -48,26 +42,15 @@ alias merge="git merge"
 alias gb="git branch"
 alias grmd="git ls-files --deleted -z | xargs -0 git rm" # Removes files deleted outside of git
 
-# aliases for moving around
-alias home="cd ~/"
-
 # pythonbrew venv aliases
 alias mkvenv="pythonbrew venv create"
 alias lvenv="pythonbrew venv list"
 alias workon="pythonbrew venv use"
 alias rmvenv="pythonbrew venv delete"
 
-# aws
-#alias aws="ssh -i ~/.keys/mwc13.pem ec2-54-225-242-21.compute-1.amazonaws.com"
-#alias aws="ssh -i ~/.keys/mwc13.pem ec2-50-19-58-219.compute-1.amazonaws.com"
-#alias aws="ssh -i ~/.keys/mwc13.pem ubuntu@ec2-50-19-58-219.compute-1.amazonaws.com"
-#alias aws="ssh -i ~/.keys/mwc13.pem ubuntu@54.225.242.21"
-
-
 # Aliases
 alias ll='ls -la'
 alias i="ssh independents.sua.umn.edu"
-#alias b="ssh browncoat.sua.umn.edu"
 alias b="ssh bluesun.sua.umn.edu"
 alias r="ssh reaver.sua.umn.edu"
 alias s="ssh shepherd.sua.umn.edu"
@@ -80,19 +63,7 @@ alias provision_prod_sua="ansible-playbook -i prod -l reaver.sua.umn.edu -t sua 
 alias provision_prod_hc="ansible-playbook -i prod -l reaver.sua.umn.edu -t homecoming -K all.yml"
 alias provision_prod_sj="ansible-playbook -i prod -l reaver.sua.umn.edu -t springjam -K all.yml"
 
-# moving around
-alias home="cd ~/"
-alias sites="cd ~/Sites/vague/sites"
-alias desktop="cd ~/Desktop"
-alias docs="cd ~/Documents"
-alias sj="cd ~/Sites/springjam.umn.edu"
-alias mwc="cd ~/Sites/minnewebcon2013"
-alias tdir="cd ~/Sites/touch-directory"
-alias vague="cd ~/Sites/vague"
-alias ans="cd ~/Sites/vague/ansible"
-
 # tmux
-
 alias attach="tmux a -t"
 
 # Archiving
@@ -115,9 +86,6 @@ alias vapi='cd ~/Sites/vague;ssh vague-api;cd - >/dev/null'
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
-
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
@@ -125,9 +93,7 @@ fi
 
 # Set the git branch in the prompt
 function parse_git_branch {
-
 	git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ \[\1\]/'
-
 }
 
 function proml {
@@ -152,68 +118,7 @@ proml
 [[ -s "$HOME/.pythonbrew/etc/bashrc" ]] && source "$HOME/.pythonbrew/etc/bashrc"
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 
-#function uttb { scp "$1" test.sua.umn.edu:/www/thoma127.test.sua.umn.edu/apps/"$2"; }
-#function uttp { scp "$1" test.sua.umn.edu:/www/thoma127.test.sua.umn.edu/public/"$2"; }
-#function uthc { scp "$1" test.sua.umn.edu:/www/thoma127.test.homecoming.umn.edu/homecoming/"$2"; }
-#function utsj { scp "$1" test.sua.umn.edu:/www/thoma127.test.springjam.umn.edu/apps/"$2"; }
-#function utcs { scp "$1" test.sua.umn.edu:/www/test.commstation.sua.umn.edu/apps/"$2"; }
-
 source `brew --prefix git`/etc/bash_completion.d/git-completion.bash
-
-#alias provision_prod_sj="ansible-playbook -i prod -l reaver.sua.umn.edu -t springjam -K all.yml"
-
-function ansible_deploy {
-    echo "Are you sure you are ready to deploy?"
-    select yn in "Yes" "No";
-    do
-        echo "Switching to ansible directory."
-        cd ~/Sites/vague/ansible;
-        case $yn in
-            Yes ) echo "Choose an environment for deployment."
-                select env in "test" "prod" "staging" "api";
-                do
-                    if [ $env = "test" ]; then
-                        subdomain="shepherd"
-                    elif [ $env = "staging" ]; then
-                        subdomain="reaver"
-                    else
-                        subdomain="api"
-                    fi
-
-                    echo "Choose a site or select \"All.\""
-                    select site in "sua" "homecoming" "springjam" "all";
-                    do
-                        if [ $site = "all" ]; then
-                            echo "Running 'ansible-playbook -i $env -l $subdomain.sua.umn.edu -K all.yml"
-                            echo "Are you sure you want to continue?"
-                            select cont in "Yes" "No";
-                            do
-                                if [ $cont = "Yes" ]; then
-                                    ansible-playbook -i "$env" -l "$subdomain".sua.umn.edu -K all.yml; return 1;
-                                else
-                                    echo "OK."; return 1;
-                                fi
-                            done;
-                        else
-                            echo "Running ansible-playbook -i $env -l $subdomain.sua.umn.edu -t $site -K all.yml;"
-                            echo "Are you sure you want to continue?"
-                            select cont in "Yes" "No";
-                            do
-                                if [ $cont = "Yes" ]; then
-                                    ansible-playbook -i "$env" -l "$subdomain".sua.umn.edu -t "$site" -K all.yml;
-                                else
-                                    echo "OK.";
-                                fi
-                            done;
-                        fi
-                    done;
-                done; return 1;;
-            No ) echo "Better safe than sorry."; return 1;;
-            * )
-        esac
-    done
-    return 1;
-}
 
 # http://jeroenjanssens.com/2013/08/16/quickly-navigate-your-filesystem-from-the-command-line.html
 export MARKPATH=$HOME/.marks
