@@ -4,6 +4,8 @@ export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 
 PATH="/usr/local/bin:/usr/bin:/usr/local/lib:/usr/local/sbin:${PATH}"
+GOPATH="/Users/thoma127/Documents/go/"
+export GOPATH
 export PATH="$HOME/.tmuxifier/bin:$PATH"
 
 EDITOR="/usr/local/bin/gvim"
@@ -18,8 +20,8 @@ alias la='ls -A'
 alias l='ls -CF'
 
 # some grep aliases
-alias greps="grep -rn --include '*.css' --include '*.scss' --include '*.sass' --include '*.py' --include '*.js' --include '*.php' --include '*.html' --include '*.txt'"
-alias grepi="grep -rin --include '*.css' --include '*.scss' --include '*.sass' --include '*.py' --include '*.js' --include '*.php' --include '*.html' --include '*.txt'"
+alias greps="grep -rn --include '*.css' --include '*.scss' --include '*.sass' --include '*.py' --include '*.js' --include '*.php' --include '*.html' --include '*.txt' --include '*.rst'"
+alias grepi="grep -rin --include '*.css' --include '*.scss' --include '*.sass' --include '*.py' --include '*.js' --include '*.php' --include '*.html' --include '*.txt' --include '*.rst'"
 alias grep_php="grep -rin --include '*.php'"
 alias grep_css="grep -rin --include '*.css'"
 alias grep_js="grep -rin --include '*.js'"
@@ -41,6 +43,7 @@ alias gprettylog="git log --all --graph --pretty=format:'%Cred%h%Creset -%C(auto
 alias merge="git merge"
 alias gb="git branch"
 alias grmd="git ls-files --deleted -z | xargs -0 git rm" # Removes files deleted outside of git
+alias rm_merged='git branch --merged master | grep -v "\* master" | xargs -n 1 git branch -d'
 
 # pythonbrew venv aliases
 alias mkvenv="pythonbrew venv create"
@@ -54,6 +57,7 @@ alias i="ssh independents.sua.umn.edu"
 alias b="ssh bluesun.sua.umn.edu"
 alias r="ssh reaver.sua.umn.edu"
 alias s="ssh shepherd.sua.umn.edu"
+alias m="ssh miranda.sua.umn.edu"
 
 #provisioning
 alias provision_test_sua="ansible-playbook -i test -l shepherd.sua.umn.edu -t sua -K all.yml"
@@ -79,7 +83,6 @@ alias pyserve="python -m SimpleHTTPServer"
 alias rsf='cd ~/Sites/vague;ssh vague supervisorctl restart sua.umn.edu#flask;cd - >/dev/null'
 alias rsd='cd ~/Sites/vague;ssh vague supervisorctl restart sua.umn.edu#django;cd - >/dev/null'
 alias rad='cd ~/Sites/vague;ssh vague-api supervisorctl restart api.sua.umn.edu#django;cd - >/dev/null'
-alias v='cd ~/Sites/vague;ssh vague;cd - >/dev/null'
 alias vapi='cd ~/Sites/vague;ssh vague-api;cd - >/dev/null'
 
 # enable color support of ls and also add handy aliases

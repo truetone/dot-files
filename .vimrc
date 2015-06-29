@@ -33,6 +33,7 @@ set cursorline
 set scrolloff=3
 set t_Co=256
 set spell spelllang=en_us
+set mouse=a
 
 "" Show invisible characters as dots
 ""set list
@@ -71,7 +72,7 @@ nnoremap <silent> <F6> :so $MYVIMRC<CR>
 colorscheme solarized
 syntax on
 au BufNewFile,BufRead *.twig set filetype=jinja
-au BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm,*.j2 set ft=jinja
+au BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm,*.j2,*.xml set ft=jinja
 au BufNewFile,BufRead *.js set ft=javascript
 au BufNewFile,BufRead *.md set filetype=markdown
 au BufNewFile,BufRead /etc/lighttpd/*.conf,lighttpd.conf set filetype=lighttpd
