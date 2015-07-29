@@ -1,3 +1,16 @@
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'gmarik/Vundle.vim'
+
+Plugin 'jlanzarotta/bufexplorer'
+Plugin 'klen/python-mode'
+Plugin 'scrooloose/syntastic'
+Plugin 'bling/vim-airline'
+Plugin 'airblade/vim-gitgutter'
+
+call vundle#end()
+
 "fold settings
 set foldmethod=indent
 set foldnestmax=10
@@ -77,7 +90,7 @@ au BufNewFile,BufRead *.js set ft=javascript
 au BufNewFile,BufRead *.md set filetype=markdown
 au BufNewFile,BufRead /etc/lighttpd/*.conf,lighttpd.conf set filetype=lighttpd
 au BufNewFile,BufRead .bashrc*,bashrc,bash.bashrc,.bash_profile*,.bash_logout*,*.bash,*.ebuild call SetFileTypeSH("bash")
-call pathogen#infect()
+"" call pathogen#infect()
 ":nnoremap <F5> :buffers<CR>:buffer<Space>
 
 "" Do not use swap files

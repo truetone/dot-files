@@ -10,6 +10,8 @@ export PATH="$HOME/.tmuxifier/bin:$PATH"
 
 EDITOR="/usr/local/bin/gvim"
 
+source /usr/local/bin/virtualenvwrapper.sh
+
 # tmuxifier
 eval "$(tmuxifier init -)"
 alias v='tmuxifier load-session vague'
@@ -46,44 +48,21 @@ alias grmd="git ls-files --deleted -z | xargs -0 git rm" # Removes files deleted
 alias rm_merged='git branch --merged master | grep -v "\* master" | xargs -n 1 git branch -d'
 
 # pythonbrew venv aliases
-alias mkvenv="pythonbrew venv create"
-alias lvenv="pythonbrew venv list"
-alias workon="pythonbrew venv use"
-alias rmvenv="pythonbrew venv delete"
+# alias mkvenv="pythonbrew venv create"
+# alias lvenv="pythonbrew venv list"
+# alias workon="pythonbrew venv use"
+# alias rmvenv="pythonbrew venv delete"
 
 # Aliases
 alias ll='ls -la'
-alias i="ssh independents.sua.umn.edu"
-alias b="ssh bluesun.sua.umn.edu"
-alias r="ssh reaver.sua.umn.edu"
-alias s="ssh shepherd.sua.umn.edu"
-alias m="ssh miranda.sua.umn.edu"
-
-#provisioning
-alias provision_test_sua="ansible-playbook -i test -l shepherd.sua.umn.edu -t sua -K all.yml"
-alias provision_test_hc="ansible-playbook -i test -l shepherd.sua.umn.edu -t homecoming -K all.yml"
-alias provision_test_sj="ansible-playbook -i test -l shepherd.sua.umn.edu -t springjam -K all.yml"
-alias provision_prod_sua="ansible-playbook -i prod -l reaver.sua.umn.edu -t sua -K all.yml"
-alias provision_prod_hc="ansible-playbook -i prod -l reaver.sua.umn.edu -t homecoming -K all.yml"
-alias provision_prod_sj="ansible-playbook -i prod -l reaver.sua.umn.edu -t springjam -K all.yml"
 
 # tmux
 alias attach="tmux a -t"
-
-# Archiving
-alias cryptp="wget -E -H -k -K -p -nd"
 
 #Python simple server
 
 alias pyserve="python -m SimpleHTTPServer"
 
-
-# Vagrant aliases
-
-alias rsf='cd ~/Sites/vague;ssh vague supervisorctl restart sua.umn.edu#flask;cd - >/dev/null'
-alias rsd='cd ~/Sites/vague;ssh vague supervisorctl restart sua.umn.edu#django;cd - >/dev/null'
-alias rad='cd ~/Sites/vague;ssh vague-api supervisorctl restart api.sua.umn.edu#django;cd - >/dev/null'
-alias vapi='cd ~/Sites/vague;ssh vague-api;cd - >/dev/null'
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
@@ -112,7 +91,8 @@ function proml {
 	local  LIGHT_GRAY="\[\033[0;37m\]"
 	#END OPTIONAL
 	local     DEFAULT="\[\033[0m\]"
-	PS1="$LIGHT_RED[\j] $RED\h:$LIGHT_GRAY\W $GREEN\u$BLUE\$(parse_git_branch) $DEFAULT\$"
+	# PS1="$LIGHT_RED[\j] $RED\h:$LIGHT_GRAY\W $GREEN\u$BLUE\$(parse_git_branch) $DEFAULT\$"
+	PS1="$RED\h:$LIGHT_GRAY\W $GREEN\u$BLUE\$(parse_git_branch) $DEFAULT\$"
 }
 
 proml
@@ -121,7 +101,7 @@ proml
 [[ -s "$HOME/.pythonbrew/etc/bashrc" ]] && source "$HOME/.pythonbrew/etc/bashrc"
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 
-source `brew --prefix git`/etc/bash_completion.d/git-completion.bash
+# source `brew --prefix git`/etc/bash_completion.d/git-completion.bash
 
 # http://jeroenjanssens.com/2013/08/16/quickly-navigate-your-filesystem-from-the-command-line.html
 export MARKPATH=$HOME/.marks
