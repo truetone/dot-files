@@ -6,10 +6,23 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'jlanzarotta/bufexplorer'
 Plugin 'klen/python-mode'
 Plugin 'scrooloose/syntastic'
+Plugin 'nvie/vim-flake8'
 Plugin 'bling/vim-airline'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'lepture/vim-jinja'
+Plugin 'mkitt/tabline.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'AndrewRadev/linediff.vim'
+" Plugin 'hallettj/jslint.vim'
 
 call vundle#end()
+
+" Tabline
+hi TabLine      ctermfg=Black  ctermbg=Green     cterm=NONE
+hi TabLineFill  ctermfg=Black  ctermbg=Green     cterm=NONE
+hi TabLineSel   ctermfg=White  ctermbg=DarkBlue  cterm=NONE
 
 "fold settings
 set foldmethod=indent
@@ -47,21 +60,30 @@ set scrolloff=3
 set t_Co=256
 set spell spelllang=en_us
 set mouse=a
+set backspace=indent,eol,start
 
 "" Show invisible characters as dots
 ""set list
 set listchars=tab:··,trail:·
 
+"" pymode virtualenv detection
+let g:pymode_virtualenv = 1
+let g:pymode_lint_checker = "pylint"
+let g:pymode_virtualenv_path = $VIRTUAL_ENV
+let g:pymode_lint_config = '$HOME/.pylint.rc'
+let g:syntastic_javascript_checkers = ['jshint']
+let $JS_CMD='node'
+
 map <silent> <C-t> :tabe<space>
 map <silent> <C-p> :tabp<CR>
 map <silent> <C-n> :tabn<CR>
 
-"" Remap F1 to replace indenting spaces with tabs
+"" Remap F7 to replace indenting spaces with tabs
 function! SpacesToTabs()
 	set noexpandtab
 	retab!
 endfunction
-nnoremap <silent> <F1> :call SpacesToTabs()<CR>
+nnoremap <silent> <F&> :call SpacesToTabs()<CR>
 
 "" Remap F2 to replace indenting tabs with spaces
 function! TabsToSpaces()
@@ -74,6 +96,7 @@ nnoremap <silent> <F2> :call TabsToSpaces()<CR>
 "" Remap F3 to remove whitespace at the end of each line
 nnoremap <silent> <F3> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
+"" Highlight hidden characters as dots (to help find whitespace)
 nnoremap <silent> <F4> :set list! list?<CR>
 
 "" Convert 2-space tabs to 4-space
@@ -84,12 +107,15 @@ nnoremap <silent> <F6> :so $MYVIMRC<CR>
 
 colorscheme solarized
 syntax on
+
 au BufNewFile,BufRead *.twig set filetype=jinja
 au BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm,*.j2,*.xml set ft=jinja
 au BufNewFile,BufRead *.js set ft=javascript
 au BufNewFile,BufRead *.md set filetype=markdown
 au BufNewFile,BufRead /etc/lighttpd/*.conf,lighttpd.conf set filetype=lighttpd
 au BufNewFile,BufRead .bashrc*,bashrc,bash.bashrc,.bash_profile*,.bash_logout*,*.bash,*.ebuild call SetFileTypeSH("bash")
+" au BufAdd,BufNewFile * nested tab sball
+
 "" call pathogen#infect()
 ":nnoremap <F5> :buffers<CR>:buffer<Space>
 
@@ -99,7 +125,7 @@ set nowritebackup
 set noswapfile
 
 "" Format columns at 80 & 120 characters
-let &colorcolumn="80,".join(range(120,999),",")
+let &colorcolumn="90,".join(range(120,999),",")
 
 "Git branch
 function! GitBranch()
@@ -111,7 +137,7 @@ function! GitBranch()
 endfunction
 
 function! CurDir()
-	return substitute(getcwd(), '/Users/thoma127/', "~/", "g")
+	return substitute(getcwd(), '/Users/tonythomas/', "~/", "g")
 endfunction
 
 function! HasPaste()
@@ -124,8 +150,14 @@ endfunction
 "" Call Flake8 after saving a python source file
 ""autocmd BufWritePost *.py :call Flake8()
 
-au FileType javascript call JavaScriptFold()
+" au FileType javascript call JavaScriptFold()
 
 if has("gui_macvim") || has("gui_vimr")
    set guifont=InputMono:h13
 endif
+
+" Auto-close the quickfix buffer if it's the only remaining buffer
+aug QFClose
+  au!
+  au WinEnter * if winnr('$') == 1 && getbufvar(winbufnr(winnr()), "&buftype") == "quickfix"|q|endif
+aug END

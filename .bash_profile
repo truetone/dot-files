@@ -1,20 +1,31 @@
-# screenfetch
+# Run screenfetch to display system info
+screenfetch
 
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 
-PATH="/usr/local/bin:/usr/bin:/usr/local/lib:/usr/local/sbin:${PATH}"
+PATH="/Users/tonythomas/Projects/lead-pages/lib:/usr/local/bin:/usr/bin:/usr/local/lib:/usr/local/sbin:${PATH}"
 GOPATH="/Users/thoma127/Documents/go/"
+PYTHONPATH="/Users/tonythomas/.virtualenvs/monolith/bin/:/Users/tonythomas/Projects/lead-pages/lib:/usr/local/share/google-app-engine"
+export PYTHONPATH
 export GOPATH
 export PATH="$HOME/.tmuxifier/bin:$PATH"
+
+# docker
+export DOCKER_HOST=tcp://192.168.59.103:2376
+export DOCKER_CERT_PATH=/Users/tonythomas/.boot2docker/certs/boot2docker-vm
+export DOCKER_TLS_VERIFY=1
 
 EDITOR="/usr/local/bin/gvim"
 
 source /usr/local/bin/virtualenvwrapper.sh
 
+# vim
+alias vi="vim"
+
 # tmuxifier
 eval "$(tmuxifier init -)"
-alias v='tmuxifier load-session vague'
+alias m='tmuxifier load-session mono'
 
 # some more ls aliases
 alias ll='ls -alhF'
@@ -28,11 +39,14 @@ alias grep_php="grep -rin --include '*.php'"
 alias grep_css="grep -rin --include '*.css'"
 alias grep_js="grep -rin --include '*.js'"
 alias grep_py="grep -rin --include '*.py'"
+alias grep_pys="grep -rn --include '*.py'"
+alias grep_html="grep -rin --include '*.html'"
 
 # handy git aliases
 alias dev="git checkout develop"
 alias mas="git checkout master"
 alias st="git status -sb"
+alias gstat="git diff --stat"
 alias co="git checkout"
 alias add="git add"
 alias cmt="git commit"
@@ -54,7 +68,7 @@ alias rm_merged='git branch --merged master | grep -v "\* master" | xargs -n 1 g
 # alias rmvenv="pythonbrew venv delete"
 
 # Aliases
-alias ll='ls -la'
+alias ll='ls -lah'
 
 # tmux
 alias attach="tmux a -t"
@@ -105,13 +119,13 @@ if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 
 # http://jeroenjanssens.com/2013/08/16/quickly-navigate-your-filesystem-from-the-command-line.html
 export MARKPATH=$HOME/.marks
-function hop { 
+function hop {
     cd -P "$MARKPATH/$1" 2>/dev/null || echo "No such mark: $1"
 }
-function mark { 
+function mark {
     mkdir -p "$MARKPATH"; ln -s "$(pwd)" "$MARKPATH/$1"
 }
-function unmark { 
+function unmark {
     rm -i "$MARKPATH/$1"
 }
 function marks {
