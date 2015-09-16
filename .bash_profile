@@ -32,6 +32,10 @@ alias ll='ls -alhF'
 alias la='ls -A'
 alias l='ls -CF'
 
+# grep color http://superuser.com/questions/416835/how-can-i-grep-with-color-in-mac-os-xs-terminal
+export GREP_OPTIONS='--color=always'
+export GREP_COLOR='1;35;40'
+
 # some grep aliases
 alias greps="grep -rn --include '*.css' --include '*.scss' --include '*.yml' --include '*.sass' --include '*.py' --include '*.js' --include '*.php' --include '*.html' --include '*.txt' --include '*.rst'"
 alias grepi="grep -rin --include '*.css' --include '*.scss' --include '*.yml' --include '*.sass' --include '*.py' --include '*.js' --include '*.php' --include '*.html' --include '*.txt' --include '*.rst'"
