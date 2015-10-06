@@ -15,6 +15,7 @@ Plugin 'lepture/vim-jinja'
 Plugin 'mkitt/tabline.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'AndrewRadev/linediff.vim'
+Plugin 'pangloss/vim-javascript'
 " Plugin 'hallettj/jslint.vim'
 
 call vundle#end()
@@ -83,7 +84,7 @@ function! SpacesToTabs()
 	set noexpandtab
 	retab!
 endfunction
-nnoremap <silent> <F&> :call SpacesToTabs()<CR>
+"" nnoremap <silent> <F7> :call SpacesToTabs()<CR>
 
 "" Remap F2 to replace indenting tabs with spaces
 function! TabsToSpaces()
@@ -104,6 +105,12 @@ nnoremap <silent> <F5> :%s/^\s*/&&/g<CR>
 
 "" Wrap reload .vimrc w/o restarting.
 nnoremap <silent> <F6> :so $MYVIMRC<CR>
+
+"" Set tabspaces to 2
+nnoremap <silent> <F7> :set ts=2 sts=2 noet<CR>
+
+"" Set tabspaces to 4
+nnoremap <silent> <F8> :set ts=4 sts=4 noet<CR>
 
 colorscheme solarized
 syntax on

@@ -4,6 +4,14 @@ screenfetch
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 
+# export TMUXIFIER_TMUX_ITERM_ATTACH='-C'
+
+# The next line updates PATH for the Google Cloud SDK.
+source '/Users/tonythomas/google-cloud-sdk/path.bash.inc'
+
+# The next line enables shell command completion for gcloud.
+source '/Users/tonythomas/google-cloud-sdk/completion.bash.inc'
+
 PATH="/Users/tonythomas/Projects/lead-pages/lib:/usr/local/bin:/usr/bin:/usr/local/lib:/usr/local/sbin:${PATH}"
 GOPATH="/Users/thoma127/Documents/go/"
 PYTHONPATH="/Users/tonythomas/.virtualenvs/monolith/bin/:/Users/tonythomas/Projects/lead-pages/lib:/usr/local/share/google-app-engine"
@@ -22,10 +30,6 @@ source /usr/local/bin/virtualenvwrapper.sh
 
 # vim
 alias vi="vim"
-
-# tmuxifier
-eval "$(tmuxifier init -)"
-alias m='tmuxifier load-session mono'
 
 # some more ls aliases
 alias ll='ls -alhF'
@@ -76,6 +80,9 @@ alias ll='ls -lah'
 
 # tmux
 alias attach="tmux a -t"
+
+# tmuxifier
+# eval "$(tmuxifier init -)"
 
 #Python simple server
 
@@ -143,3 +150,5 @@ _completemarks() {
 }
 
 complete -F _completemarks jump unmark
+
+EDITOR=vi; export EDITOR
