@@ -14,7 +14,7 @@ source '/Users/tonythomas/google-cloud-sdk/completion.bash.inc'
 
 PATH="/Users/tonythomas/Projects/lead-pages/lib:/usr/local/bin:/usr/bin:/usr/local/lib:/usr/local/sbin:${PATH}"
 GOPATH="/Users/thoma127/Documents/go/"
-PYTHONPATH="/Users/tonythomas/.virtualenvs/monolith/bin/:/Users/tonythomas/Projects/lead-pages/lib:/usr/local/share/google-app-engine"
+PYTHONPATH="/usr/local/google_appengine:/Users/tonythomas/.virtualenvs/monolith/bin/:/Users/tonythomas/Projects/lead-pages/lib:/usr/local/share/google-app-engine"
 export PYTHONPATH
 export GOPATH
 export PATH="$HOME/.tmuxifier/bin:$PATH"
@@ -24,7 +24,7 @@ export DOCKER_HOST=tcp://192.168.59.103:2376
 export DOCKER_CERT_PATH=/Users/tonythomas/.boot2docker/certs/boot2docker-vm
 export DOCKER_TLS_VERIFY=1
 
-EDITOR="/usr/local/bin/gvim"
+# EDITOR="/usr/local/bin/gvim"
 
 source /usr/local/bin/virtualenvwrapper.sh
 
@@ -41,14 +41,15 @@ export GREP_OPTIONS='--color=always'
 export GREP_COLOR='1;35;40'
 
 # some grep aliases
-alias greps="grep -rn --include '*.css' --include '*.scss' --include '*.yml' --include '*.sass' --include '*.py' --include '*.js' --include '*.php' --include '*.html' --include '*.txt' --include '*.rst'"
-alias grepi="grep -rin --include '*.css' --include '*.scss' --include '*.yml' --include '*.sass' --include '*.py' --include '*.js' --include '*.php' --include '*.html' --include '*.txt' --include '*.rst'"
+alias greps="grep -rn --include '*.css' --include '*.scss' --include '*.yml' --include '*.sass' --include '*.py' --include '*.js' --include '*.php' --include '*.html' --include '*.txt' --include '*.rst' --include '*.robot'"
+alias grepi="grep -rin --include '*.css' --include '*.scss' --include '*.yml' --include '*.sass' --include '*.py' --include '*.js' --include '*.php' --include '*.html' --include '*.txt' --include '*.rst' --include '*.robot'"
 alias grep_php="grep -rin --include '*.php'"
 alias grep_css="grep -rin --include '*.css'"
 alias grep_js="grep -rin --include '*.js'"
 alias grep_py="grep -rin --include '*.py'"
 alias grep_pys="grep -rn --include '*.py'"
 alias grep_html="grep -rin --include '*.html'"
+alias grep_robot="grep -rin --include '*.robot'"
 
 # handy git aliases
 alias dev="git checkout develop"
@@ -152,3 +153,9 @@ _completemarks() {
 complete -F _completemarks jump unmark
 
 EDITOR=vi; export EDITOR
+
+if [ -f ~/.git-completion.bash ]; then
+  . ~/.git-completion.bash
+fi
+
+__git_complete co _git_checkout

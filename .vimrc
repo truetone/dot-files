@@ -16,6 +16,8 @@ Plugin 'mkitt/tabline.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'AndrewRadev/linediff.vim'
 Plugin 'pangloss/vim-javascript'
+Plugin 'mfukar/robotframework-vim'
+Plugin 'hdima/python-syntax'
 " Plugin 'hallettj/jslint.vim'
 
 call vundle#end()
