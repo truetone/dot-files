@@ -12,9 +12,10 @@ source '/Users/tonythomas/google-cloud-sdk/path.bash.inc'
 # The next line enables shell command completion for gcloud.
 source '/Users/tonythomas/google-cloud-sdk/completion.bash.inc'
 
-PATH="/Users/tonythomas/Projects/lead-pages/lib:/usr/local/bin:/usr/bin:/usr/local/lib:/usr/local/sbin:${PATH}"
-GOPATH="/Users/thoma127/Documents/go/"
-PYTHONPATH="/usr/local/google_appengine:/Users/tonythomas/.virtualenvs/monolith/bin/:/Users/tonythomas/Projects/lead-pages/lib:/usr/local/share/google-app-engine"
+# Altering the path this way breaks our deployment script. It turns out Vim only really needs PYTHONPATH anyway
+# PATH="/Users/tonythomas/Projects/lead-pages/lib:/usr/local/bin:/usr/bin:/usr/local/lib:/usr/local/sbin:${PATH}"
+# GOPATH="/Users/thoma127/Documents/go/"
+PYTHONPATH="/Users/tonythomas/Projects/lead-pages/tests/unit:/usr/local/google_appengine:/Users/tonythomas/.virtualenvs/monolith/bin/:/Users/tonythomas/Projects/lead-pages/lib:/usr/local/share/google-app-engine"
 export PYTHONPATH
 export GOPATH
 export PATH="$HOME/.tmuxifier/bin:$PATH"
@@ -69,6 +70,18 @@ alias merge="git merge"
 alias gb="git branch"
 alias grmd="git ls-files --deleted -z | xargs -0 git rm" # Removes files deleted outside of git
 alias rm_merged='git branch --merged master | grep -v "\* master" | xargs -n 1 git branch -d'
+
+# Check out feature/<something>
+function checkOutFeature() {
+    git checkout feature/$1
+}
+
+function checkOutPepFeature() {
+    git checkout feature/PEP-$1
+}
+
+alias cof=checkOutFeature
+alias copf=checkOutPepFeature
 
 # pythonbrew venv aliases
 # alias mkvenv="pythonbrew venv create"
