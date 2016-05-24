@@ -18,7 +18,8 @@ Plugin 'AndrewRadev/linediff.vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mfukar/robotframework-vim'
 Plugin 'hdima/python-syntax'
-" Plugin 'hallettj/jslint.vim'
+""Plugin 'hallettj/jslint.vim'
+Plugin 'wookiehangover/jshint.vim'
 
 call vundle#end()
 
@@ -74,7 +75,9 @@ let g:pymode_virtualenv = 1
 let g:pymode_lint_checker = "pylint"
 let g:pymode_virtualenv_path = $VIRTUAL_ENV
 let g:pymode_lint_config = '$HOME/.pylint.rc'
-let g:syntastic_javascript_checkers = ['jshint']
+"" let g:syntastic_javascript_checkers = ['eslint', 'jshint']
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_check_on_wq = 0
 let $JS_CMD='node'
 
 map <silent> <C-t> :tabe<space>
@@ -94,6 +97,10 @@ function! TabsToSpaces()
 	retab!
 endfunction
 
+"" Remap F1 to remove Syntastic markers
+nnoremap <silent> <F1> :SyntasticReset<CR>
+
+"" Remap F2 to convert tabs to spaces
 nnoremap <silent> <F2> :call TabsToSpaces()<CR>
 
 "" Remap F3 to remove whitespace at the end of each line
@@ -118,7 +125,7 @@ colorscheme solarized
 syntax on
 
 au BufNewFile,BufRead *.twig set filetype=jinja
-au BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm,*.j2,*.xml set ft=jinja
+au BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm,*.j2,*.xml,*.hbs,*.ejs set ft=jinja
 au BufNewFile,BufRead *.js set ft=javascript
 au BufNewFile,BufRead *.md set filetype=markdown
 au BufNewFile,BufRead /etc/lighttpd/*.conf,lighttpd.conf set filetype=lighttpd
@@ -133,7 +140,7 @@ set nobackup
 set nowritebackup
 set noswapfile
 
-"" Format columns at 80 & 120 characters
+"" Format columns at 90 & 120 characters
 let &colorcolumn="90,".join(range(120,999),",")
 
 "Git branch

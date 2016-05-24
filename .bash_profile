@@ -14,16 +14,29 @@ source '/Users/tonythomas/google-cloud-sdk/completion.bash.inc'
 
 # Altering the path this way breaks our deployment script. It turns out Vim only really needs PYTHONPATH anyway
 # PATH="/Users/tonythomas/Projects/lead-pages/lib:/usr/local/bin:/usr/bin:/usr/local/lib:/usr/local/sbin:${PATH}"
-# GOPATH="/Users/thoma127/Documents/go/"
-PYTHONPATH="/Users/tonythomas/Projects/lead-pages/tests/unit:/usr/local/google_appengine:/Users/tonythomas/.virtualenvs/monolith/bin/:/Users/tonythomas/Projects/lead-pages/lib:/usr/local/share/google-app-engine"
-export PYTHONPATH
-export GOPATH
-export PATH="$HOME/.tmuxifier/bin:$PATH"
+# GOPATH="/Users/thoma127/Documents/go/" # PYTHONPATH="/Users/tonythomas/Projects/lead-pages/tests/unit:"
+# PYTHONPATH="/usr/local/google_appengine:/Users/tonythomas/.virtualenvs/leadpages/bin/:${PYTHONPATH}"
+# PYTHONPATH="/Users/tonythomas/Projects/lead-pages/lib:/usr/local/google-appengine:${PYTHONPATH}"
+# PYTHONPATH="/Users/tonythomas/Projects/account/vendor:${PYTHONPATH}"
+# PYTHONPATH="/Users/tonythomas/Projects/account/lib:${PYTHONPATH}"
+# PYTHONPATH="/Users/tonythomas/Projects/account${PYTHONPATH}"
+# PYTHONPATH="/Users/tonythomas/Projects/lead-pages/lib${PYTHONPATH}"
+# export PYTHONPATH
+# export GOPATH
+# export PATH="$HOME/.tmuxifier/bin:$PATH"
+
+# export PATH="/usr/local/google_appengine:$PATH"
 
 # docker
-export DOCKER_HOST=tcp://192.168.59.103:2376
-export DOCKER_CERT_PATH=/Users/tonythomas/.boot2docker/certs/boot2docker-vm
+# export DOCKER_HOST=tcp://192.168.59.103:2376
+# export DOCKER_CERT_PATH=/Users/tonythomas/.boot2docker/certs/boot2docker-vm
+# export DOCKER_TLS_VERIFY=1
+
+# dinghy
+export DOCKER_HOST=tcp://192.168.99.101:2376
+export DOCKER_CERT_PATH=/Users/tonythomas/.docker/machine/machines/dinghy
 export DOCKER_TLS_VERIFY=1
+export DOCKER_MACHINE_NAME=dinghy
 
 # EDITOR="/usr/local/bin/gvim"
 
@@ -42,8 +55,8 @@ export GREP_OPTIONS='--color=always'
 export GREP_COLOR='1;35;40'
 
 # some grep aliases
-alias greps="grep -rn --include '*.css' --include '*.scss' --include '*.yml' --include '*.sass' --include '*.py' --include '*.js' --include '*.php' --include '*.html' --include '*.txt' --include '*.rst' --include '*.robot'"
-alias grepi="grep -rin --include '*.css' --include '*.scss' --include '*.yml' --include '*.sass' --include '*.py' --include '*.js' --include '*.php' --include '*.html' --include '*.txt' --include '*.rst' --include '*.robot'"
+alias greps="grep -rn --include '*.css' --include '*.scss' --include '*.yml' --include '*.sass' --include '*.py' --include '*.js' --include '*.php' --include '*.html' --include '*.txt' --include '*.rst' --include '*.robot' --include '*.hbs' --include '*.ejs'"
+alias grepi="grep -rin --include '*.css' --include '*.scss' --include '*.yml' --include '*.sass' --include '*.py' --include '*.js' --include '*.php' --include '*.html' --include '*.txt' --include '*.rst' --include '*.robot' --include '*.hbs' --include '*.ejs'"
 alias grep_php="grep -rin --include '*.php'"
 alias grep_css="grep -rin --include '*.css'"
 alias grep_js="grep -rin --include '*.js'"
@@ -70,6 +83,7 @@ alias merge="git merge"
 alias gb="git branch"
 alias grmd="git ls-files --deleted -z | xargs -0 git rm" # Removes files deleted outside of git
 alias rm_merged='git branch --merged master | grep -v "\* master" | xargs -n 1 git branch -d'
+alias open_all_modified="vim `git status --porcelain | sed -ne 's/^ M //p'`"
 
 # Check out feature/<something>
 function checkOutFeature() {
@@ -80,8 +94,13 @@ function checkOutPepFeature() {
     git checkout feature/PEP-$1
 }
 
+function checkOutAsFeature() {
+    git checkout feature/AS-$1
+}
+
 alias cof=checkOutFeature
 alias copf=checkOutPepFeature
+alias coaf=checkOutAsFeature
 
 # pythonbrew venv aliases
 # alias mkvenv="pythonbrew venv create"
@@ -114,24 +133,24 @@ fi
 
 # Set the git branch in the prompt
 function parse_git_branch {
-	git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ \[\1\]/'
+    git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ \[\1\]/'
 }
 
 function proml {
 
-	local        BLUE="\[\033[0;34m\]"
+    local        BLUE="\[\033[0;34m\]"
 
-	# OPTIONAL - if you want to use any of these other colors:
-	local         RED="\[\033[0;31m\]"
-	local   LIGHT_RED="\[\033[1;31m\]"
-	local       GREEN="\[\033[0;32m\]"
-	local LIGHT_GREEN="\[\033[1;32m\]"
-	local       WHITE="\[\033[1;37m\]"
-	local  LIGHT_GRAY="\[\033[0;37m\]"
-	#END OPTIONAL
-	local     DEFAULT="\[\033[0m\]"
-	# PS1="$LIGHT_RED[\j] $RED\h:$LIGHT_GRAY\W $GREEN\u$BLUE\$(parse_git_branch) $DEFAULT\$"
-	PS1="$RED\h:$LIGHT_GRAY\W $GREEN\u$BLUE\$(parse_git_branch) $DEFAULT\$"
+    # OPTIONAL - if you want to use any of these other colors:
+    local         RED="\[\033[0;31m\]"
+    local   LIGHT_RED="\[\033[1;31m\]"
+    local       GREEN="\[\033[0;32m\]"
+    local LIGHT_GREEN="\[\033[1;32m\]"
+    local       WHITE="\[\033[1;37m\]"
+    local  LIGHT_GRAY="\[\033[0;37m\]"
+    #END OPTIONAL
+    local     DEFAULT="\[\033[0m\]"
+    # PS1="$LIGHT_RED[\j] $RED\h:$LIGHT_GRAY\W $GREEN\u$BLUE\$(parse_git_branch) $DEFAULT\$"
+    PS1="$RED\h:$LIGHT_GRAY\W $GREEN\u$BLUE\$(parse_git_branch) $DEFAULT\$"
 }
 
 proml
@@ -172,3 +191,10 @@ if [ -f ~/.git-completion.bash ]; then
 fi
 
 __git_complete co _git_checkout
+
+function fap {
+    find . -type d -exec chmod 755 {} \;
+    find . -type f -exec chmod 644 {} \;
+}
+
+source ~/.bashrc
