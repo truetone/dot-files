@@ -191,6 +191,9 @@ if [ -f ~/.git-completion.bash ]; then
 fi
 
 __git_complete co _git_checkout
+__git_complete cof _git_checkout
+__git_complete coaf _git_checkout
+__git_complete copf _git_checkout
 
 function fap {
     find . -type d -exec chmod 755 {} \;
