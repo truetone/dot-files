@@ -4,29 +4,6 @@ screenfetch
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 
-# export TMUXIFIER_TMUX_ITERM_ATTACH='-C'
-
-# The next line updates PATH for the Google Cloud SDK.
-source '/Users/tonythomas/google-cloud-sdk/path.bash.inc'
-
-# The next line enables shell command completion for gcloud.
-source '/Users/tonythomas/google-cloud-sdk/completion.bash.inc'
-
-# Altering the path this way breaks our deployment script. It turns out Vim only really needs PYTHONPATH anyway
-# PATH="/Users/tonythomas/Projects/lead-pages/lib:/usr/local/bin:/usr/bin:/usr/local/lib:/usr/local/sbin:${PATH}"
-# GOPATH="/Users/thoma127/Documents/go/"
-PYTHONPATH="/Users/tonythomas/Projects/lead-pages/tests/unit:/usr/local/google_appengine:/Users/tonythomas/.virtualenvs/monolith/bin/:/Users/tonythomas/Projects/lead-pages/lib:/usr/local/share/google-app-engine"
-export PYTHONPATH
-export GOPATH
-export PATH="$HOME/.tmuxifier/bin:$PATH"
-
-# docker
-export DOCKER_HOST=tcp://192.168.59.103:2376
-export DOCKER_CERT_PATH=/Users/tonythomas/.boot2docker/certs/boot2docker-vm
-export DOCKER_TLS_VERIFY=1
-
-# EDITOR="/usr/local/bin/gvim"
-
 source /usr/local/bin/virtualenvwrapper.sh
 
 # vim
@@ -82,12 +59,6 @@ function checkOutPepFeature() {
 
 alias cof=checkOutFeature
 alias copf=checkOutPepFeature
-
-# pythonbrew venv aliases
-# alias mkvenv="pythonbrew venv create"
-# alias lvenv="pythonbrew venv list"
-# alias workon="pythonbrew venv use"
-# alias rmvenv="pythonbrew venv delete"
 
 # Aliases
 alias ll='ls -lah'
