@@ -92,8 +92,7 @@ function proml {
 
 	local        BLUE="\[\033[0;34m\]"
 
-	# OPTIONAL - if you want to use any of these other colors:
-	local         RED="\[\033[0;31m\]"
+	# OPTIONAL - if you want to use any of these other colors: local         RED="\[\033[0;31m\]"
 	local   LIGHT_RED="\[\033[1;31m\]"
 	local       GREEN="\[\033[0;32m\]"
 	local LIGHT_GREEN="\[\033[1;32m\]"
@@ -103,7 +102,7 @@ function proml {
 	local     DEFAULT="\[\033[0m\]"
 	# PS1="$LIGHT_RED[\j] $RED\h:$LIGHT_GRAY\W $GREEN\u$BLUE\$(parse_git_branch) $DEFAULT\$"
 	PS1="$RED\h:$LIGHT_GRAY\W $GREEN\u$BLUE\$(parse_git_branch) $DEFAULT\$"
-}
+	}
 
 proml
 
@@ -142,4 +141,20 @@ if [ -f ~/.git-completion.bash ]; then
   . ~/.git-completion.bash
 fi
 
-__git_complete co _git_checkout
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+    . $(brew --prefix)/etc/bash_completion
+fi
+
+# __git_complete co _git_checkout
+
+man() {
+    env \
+        LESS_TERMCAP_mb=$(printf "\e[1;31m") \
+        LESS_TERMCAP_md=$(printf "\e[1;31m") \
+        LESS_TERMCAP_me=$(printf "\e[0m") \
+        LESS_TERMCAP_se=$(printf "\e[0m") \
+        LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
+        LESS_TERMCAP_ue=$(printf "\e[0m") \
+        LESS_TERMCAP_us=$(printf "\e[1;32m") \
+            man "$@"
+}
