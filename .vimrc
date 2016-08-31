@@ -18,6 +18,7 @@ Plugin 'AndrewRadev/linediff.vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mfukar/robotframework-vim'
 Plugin 'hdima/python-syntax'
+Plugin 'altercation/vim-colors-solarized'
 " Plugin 'hallettj/jslint.vim'
 
 call vundle#end()

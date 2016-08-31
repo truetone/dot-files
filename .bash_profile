@@ -6,9 +6,6 @@ export LSCOLORS=ExFxCxDxBxegedabagacad
 
 source /usr/local/bin/virtualenvwrapper.sh
 
-# vim
-alias vi="vim"
-
 # some more ls aliases
 alias ll='ls -alhF'
 alias la='ls -A'
