@@ -1,13 +1,26 @@
+if [ -f ~/bash-sensible/sensible.bash ]; then
+   source ~/bash-sensible/sensible.bash
+fi
+
 # Run screenfetch to display system info
 screenfetch
+
+PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 
-source /usr/local/bin/virtualenvwrapper.sh
+if brew list | grep coreutils > /dev/null ; then
+  PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
+  # alias ls='ls -F --show-control-chars --color=auto'
+  eval `gdircolors -b $HOME/.dir_colors`
+fi
+
+# source /usr/local/bin/virtualenvwrapper.sh
 
 # some more ls aliases
-alias ll='ls -alhF'
+alias ll='ls -alhF --show-control-chars --color=auto'
 alias la='ls -A'
 alias l='ls -CF'
 
@@ -58,7 +71,7 @@ alias cof=checkOutFeature
 alias copf=checkOutPepFeature
 
 # Aliases
-alias ll='ls -lah'
+# alias ll='ls -lah'
 
 # tmux
 alias attach="tmux a -t"
@@ -155,3 +168,11 @@ man() {
         LESS_TERMCAP_us=$(printf "\e[1;32m") \
             man "$@"
 }
+
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+. $(brew --prefix)/etc/bash_completion
+fi
+
+# virtualenv
+export WORKON_HOME=~/virtualenvs
+source /usr/local/bin/virtualenvwrapper.sh

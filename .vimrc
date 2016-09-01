@@ -3,10 +3,13 @@ call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
 
-Plugin 'jlanzarotta/bufexplorer'
-Plugin 'klen/python-mode'
+" Plugin 'jlanzarotta/bufexplorer'
+" Plugin 'sjbach/lusty'
+" Plugin 'kien/ctrlp.vim'
+" Plugin 'klen/python-mode'
 Plugin 'scrooloose/syntastic'
 Plugin 'nvie/vim-flake8'
+Plugin 'Valloric/YouCompleteMe'
 Plugin 'bling/vim-airline'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'godlygeek/tabular'
@@ -17,7 +20,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'AndrewRadev/linediff.vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mfukar/robotframework-vim'
-Plugin 'hdima/python-syntax'
+" Plugin 'hdima/python-syntax'
 Plugin 'altercation/vim-colors-solarized'
 " Plugin 'hallettj/jslint.vim'
 
@@ -116,6 +119,10 @@ nnoremap <silent> <F7> :set ts=2 sts=2 noet<CR>
 nnoremap <silent> <F8> :set ts=4 sts=4 noet<CR>
 
 colorscheme solarized
+" solarized options 
+let g:solarized_visibility = "high"
+let g:solarized_contrast = "high"
+let g:solarized_termcolors = 256
 syntax on
 
 au BufNewFile,BufRead *.twig set filetype=jinja
