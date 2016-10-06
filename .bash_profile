@@ -20,9 +20,12 @@ fi
 # source /usr/local/bin/virtualenvwrapper.sh
 
 # some more ls aliases
-alias ll='ls -alhF --show-control-chars --color=auto'
+# alias ll='ls -alhF --show-control-chars --color=auto'
+alias ll='ls -alhF'
 alias la='ls -A'
 alias l='ls -CF'
+
+alias vi='vim'
 
 # grep color http://superuser.com/questions/416835/how-can-i-grep-with-color-in-mac-os-xs-terminal
 export GREP_OPTIONS='--color=always'
@@ -57,6 +60,7 @@ alias merge="git merge"
 alias gb="git branch"
 alias grmd="git ls-files --deleted -z | xargs -0 git rm" # Removes files deleted outside of git
 alias rm_merged='git branch --merged master | grep -v "\* master" | xargs -n 1 git branch -d'
+alias wpssh="ssh 'thoma127@cehd-wordpress-dev-web-01.oit.umn.edu'"
 
 # Check out feature/<something>
 function checkOutFeature() {
@@ -200,5 +204,5 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
 fi
 
 # virtualenv
-export WORKON_HOME=~/virtualenvs
-source /usr/local/bin/virtualenvwrapper.sh
+# export WORKON_HOME=~/virtualenvs
+# source /usr/local/bin/virtualenvwrapper.sh
