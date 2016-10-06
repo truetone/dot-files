@@ -206,3 +206,13 @@ fi
 # virtualenv
 # export WORKON_HOME=~/virtualenvs
 # source /usr/local/bin/virtualenvwrapper.sh
+export VISUAL=vim
+export EDITOR="$VISUAL"
+
+# Avoid duplicates
+export HISTCONTROL=ignoredups:erasedups  
+# When the shell exits, append to the history file instead of overwriting it
+shopt -s histappend
+
+# After each command, append to the history file and reread it
+export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
