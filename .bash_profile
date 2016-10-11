@@ -6,6 +6,8 @@ fi
 screenfetch
 
 PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+PATH="$HOME/.local/bin:$PATH"
+
 MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 
 export CLICOLOR=1
@@ -216,3 +218,6 @@ shopt -s histappend
 
 # After each command, append to the history file and reread it
 export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
+
+export NVM_DIR="/Users/thoma127/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm

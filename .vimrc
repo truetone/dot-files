@@ -20,6 +20,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'AndrewRadev/linediff.vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mfukar/robotframework-vim'
+Bundle 'chase/vim-ansible-yaml'
 " Plugin 'hdima/python-syntax'
 Plugin 'altercation/vim-colors-solarized'
 " Plugin 'hallettj/jslint.vim'
@@ -79,6 +80,8 @@ let g:pymode_lint_checker = "pylint"
 let g:pymode_virtualenv_path = $VIRTUAL_ENV
 let g:pymode_lint_config = '$HOME/.pylint.rc'
 let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_twig_twiglint_exec = 'php'
+let g:syntastic_twig_twiglint_exe = 'php /Users/thoma127/.twig/twig-lint.phar'
 let $JS_CMD='node'
 
 map <silent> <C-t> :tabe<space>
