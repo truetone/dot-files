@@ -63,6 +63,7 @@ alias gb="git branch"
 alias grmd="git ls-files --deleted -z | xargs -0 git rm" # Removes files deleted outside of git
 alias rm_merged='git branch --merged master | grep -v "\* master" | xargs -n 1 git branch -d'
 alias wpssh="ssh 'thoma127@cehd-wordpress-dev-web-01.oit.umn.edu'"
+alias wpsshswadm="ssh 'swadm@cehd-wordpress-dev-web-01.oit.umn.edu'"
 
 # Check out feature/<something>
 function checkOutFeature() {
@@ -221,3 +222,7 @@ export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; histor
 
 export NVM_DIR="/Users/thoma127/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+# virtualenv
+export WORKON_HOME=~/virtualenvs
+source /usr/local/bin/virtualenvwrapper.sh

@@ -3,7 +3,7 @@ call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
 
-" Plugin 'jlanzarotta/bufexplorer'
+Plugin 'jlanzarotta/bufexplorer'
 " Plugin 'sjbach/lusty'
 " Plugin 'kien/ctrlp.vim'
 " Plugin 'klen/python-mode'
@@ -20,7 +20,8 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'AndrewRadev/linediff.vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mfukar/robotframework-vim'
-Bundle 'chase/vim-ansible-yaml'
+Plugin 'chase/vim-ansible-yaml'
+Plugin 'mustache/vim-mustache-handlebars'
 " Plugin 'hdima/python-syntax'
 Plugin 'altercation/vim-colors-solarized'
 " Plugin 'hallettj/jslint.vim'

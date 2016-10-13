@@ -1,0 +1,7 @@
+linters:
+    Comment:
+        enabled: false
+    StringQuotes:
+        enabled: false
+    Indentation:
+        width: 4
