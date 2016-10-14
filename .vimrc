@@ -103,6 +103,8 @@ function! TabsToSpaces()
 	retab!
 endfunction
 
+set pastetoggle=<F1>
+
 nnoremap <silent> <F2> :call TabsToSpaces()<CR>
 
 "" Remap F3 to remove whitespace at the end of each line
