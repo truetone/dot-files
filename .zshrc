@@ -7,8 +7,8 @@ export ZSH=/Users/thoma127/.oh-my-zsh
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-# ZSH_THEME="pygmalion"
-ZSH_THEME="gentoo"
+ZSH_THEME="pygmalion"
+# ZSH_THEME="gentoo"
 # ZSH_THEME="kolo"
 
 # Uncomment the following line to use case-sensitive completion.
@@ -157,3 +157,6 @@ alias attach="tmux a -t"
 alias pyserve="python -m SimpleHTTPServer"
 
 screenfetch
+
+export NVM_DIR="/Users/thoma127/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
