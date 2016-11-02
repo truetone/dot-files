@@ -160,3 +160,5 @@ screenfetch
 
 export NVM_DIR="/Users/thoma127/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+PATH=$PATH:$HOME/.composer/vendor/bin

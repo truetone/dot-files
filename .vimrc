@@ -25,6 +25,9 @@ Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'leafgarland/typescript-vim'
 " Plugin 'hdima/python-syntax'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'jelera/vim-javascript-syntax'
+Plugin 'othree/javascript-libraries-syntax.vim'
+Plugin 'heavenshell/vim-jsdoc'
 " Plugin 'hallettj/jslint.vim'
 
 call vundle#end()
@@ -76,6 +79,11 @@ set backspace=indent,eol,start
 ""set list
 set listchars=tab:··,trail:·
 
+"" Do not use swap files
+set nobackup
+set nowritebackup
+set noswapfile
+
 "" pymode virtualenv detection
 let g:pymode_virtualenv = 1
 let g:pymode_lint_checker = "pylint"
@@ -86,21 +94,26 @@ let g:syntastic_twig_twiglint_exec = 'php'
 let g:syntastic_twig_twiglint_exe = 'php /Users/thoma127/.twig/twig-lint.phar'
 let $JS_CMD='node'
 
+"" JsDoc options
+let g:javascript_plugin_jsdoc = 1
+let g:jsdoc_allow_input_prompt = 1
+let g:jsdoc_input_description = 1
+
 map <silent> <C-t> :tabe<space>
 map <silent> <C-p> :tabp<CR>
 map <silent> <C-n> :tabn<CR>
 
 "" Remap F7 to replace indenting spaces with tabs
 function! SpacesToTabs()
-	set noexpandtab
-	retab!
+    set noexpandtab
+    retab!
 endfunction
 "" nnoremap <silent> <F7> :call SpacesToTabs()<CR>
 
 "" Remap F2 to replace indenting tabs with spaces
 function! TabsToSpaces()
-	set expandtab
-	retab!
+    set expandtab
+    retab!
 endfunction
 
 set pastetoggle=<F1>
@@ -126,10 +139,10 @@ nnoremap <silent> <F7> :set ts=2 sts=2 noet<CR>
 nnoremap <silent> <F8> :set ts=4 sts=4 noet<CR>
 
 colorscheme solarized
-" solarized options 
-let g:solarized_visibility = "high"
-let g:solarized_contrast = "high"
-let g:solarized_termcolors = 256
+" solarized options
+"" let g:solarized_visibility = "high"
+"" let g:solarized_contrast = "high"
+"" let g:solarized_termcolors = 256
 syntax on
 
 au BufNewFile,BufRead *.twig set filetype=jinja
@@ -143,32 +156,27 @@ au BufNewFile,BufRead .bashrc*,bashrc,bash.bashrc,.bash_profile*,.bash_logout*,*
 "" call pathogen#infect()
 ":nnoremap <F5> :buffers<CR>:buffer<Space>
 
-"" Do not use swap files
-set nobackup
-set nowritebackup
-set noswapfile
-
 "" Format columns at 80 & 120 characters
 let &colorcolumn="90,".join(range(120,999),",")
 
 "Git branch
 function! GitBranch()
-	let branch = system("git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* //'")
-	if branch != ''
-		return '   Git Branch: ' . substitute(branch, '\n', '', 'g')
-	en
-	return ''
+    let branch = system("git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* //'")
+    if branch != ''
+        return '   Git Branch: ' . substitute(branch, '\n', '', 'g')
+    en
+    return ''
 endfunction
 
 function! CurDir()
-	return substitute(getcwd(), '/Users/tonythomas/', "~/", "g")
+    return substitute(getcwd(), '/Users/tonythomas/', "~/", "g")
 endfunction
 
 function! HasPaste()
-	if &paste
-		return 'PASTE MODE	'
-	en
-	return ''
+    if &paste
+        return 'PASTE MODE  '
+    en
+    return ''
 endfunction
 
 "" Call Flake8 after saving a python source file

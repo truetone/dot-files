@@ -1,5 +1,5 @@
 # http://jeroenjanssens.com/2013/08/16/quickly-navigate-your-filesystem-from-the-command-line.html
-export MARKPATH=$HOME/.marks
+export MARKPATH=$HOME/dot-files/.marks
 function hop {
     cd -P "$MARKPATH/$1" 2>/dev/null || echo "No such mark: $1"
 }
