@@ -1,34 +1,33 @@
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-Plugin 'gmarik/Vundle.vim'
-
-Plugin 'jlanzarotta/bufexplorer'
-" Plugin 'sjbach/lusty'
+" Plugin 'hallettj/jslint.vim'
+" Plugin 'hdima/python-syntax'
 " Plugin 'kien/ctrlp.vim'
 " Plugin 'klen/python-mode'
-Plugin 'scrooloose/syntastic'
-Plugin 'nvie/vim-flake8'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'bling/vim-airline'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
-Plugin 'lepture/vim-jinja'
-Plugin 'mkitt/tabline.vim'
-Plugin 'tpope/vim-fugitive'
+" Plugin 'sjbach/lusty'
 Plugin 'AndrewRadev/linediff.vim'
-Plugin 'pangloss/vim-javascript'
-Plugin 'mfukar/robotframework-vim'
-Plugin 'chase/vim-ansible-yaml'
-Plugin 'mustache/vim-mustache-handlebars'
-Plugin 'leafgarland/typescript-vim'
-" Plugin 'hdima/python-syntax'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'airblade/vim-gitgutter'
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'jelera/vim-javascript-syntax'
-Plugin 'othree/javascript-libraries-syntax.vim'
+Plugin 'bling/vim-airline'
+Plugin 'chase/vim-ansible-yaml'
+Plugin 'gmarik/Vundle.vim'
+Plugin 'godlygeek/tabular'
 Plugin 'heavenshell/vim-jsdoc'
-" Plugin 'hallettj/jslint.vim'
+Plugin 'jelera/vim-javascript-syntax'
+Plugin 'jlanzarotta/bufexplorer'
+Plugin 'leafgarland/typescript-vim'
+Plugin 'lepture/vim-jinja'
+Plugin 'mfukar/robotframework-vim'
+Plugin 'mkitt/tabline.vim'
+Plugin 'mustache/vim-mustache-handlebars'
+Plugin 'nvie/vim-flake8'
+Plugin 'othree/javascript-libraries-syntax.vim'
+Plugin 'pangloss/vim-javascript'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'scrooloose/syntastic'
+Plugin 'tpope/vim-fugitive'
 
 call vundle#end()
 
@@ -74,6 +73,7 @@ set t_Co=256
 set spell spelllang=en_us
 set mouse=a
 set backspace=indent,eol,start
+set dir=/tmp
 
 "" Show invisible characters as dots
 ""set list
@@ -83,6 +83,9 @@ set listchars=tab:··,trail:·
 set nobackup
 set nowritebackup
 set noswapfile
+
+"" :setlocal buftype=nofile
+"" :setlocal bufhidden=hide
 
 "" pymode virtualenv detection
 let g:pymode_virtualenv = 1
