@@ -5,3 +5,7 @@ linters:
         enabled: false
     Indentation:
         width: 4
+    IdSelector:
+        enabled: false
+    VendorPrefix:
+        enabled: false
