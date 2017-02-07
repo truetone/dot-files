@@ -226,3 +226,4 @@ export NVM_DIR="/Users/thoma127/.nvm"
 # virtualenv
 export WORKON_HOME=~/virtualenvs
 source /usr/local/bin/virtualenvwrapper.sh
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting

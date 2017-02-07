@@ -131,6 +131,8 @@ alias rm_merged='git branch --merged master | grep -v "\* master" | xargs -n 1 g
 alias wpssh="ssh 'thoma127@cehd-wordpress-dev-web-01.oit.umn.edu'"
 alias wpsshswadm="ssh 'swadm@cehd-wordpress-dev-web-01.oit.umn.edu'"
 
+alias s="spotify"
+
 # Check out feature/<something>
 function checkOutFeature() {
     git checkout feature/$1
@@ -277,3 +279,5 @@ elif type compctl &>/dev/null; then
   compctl -K _npm_completion npm
 fi
 ###-end-npm-completion-###
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting

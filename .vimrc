@@ -1,4 +1,4 @@
-set rtp+=~/.vim/bundle/Vundle.vim
+set runtimepath+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " Plugin 'hallettj/jslint.vim'
@@ -26,8 +26,13 @@ Plugin 'nvie/vim-flake8'
 Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'plasticboy/vim-markdown'
-Plugin 'scrooloose/syntastic'
+" Plugin 'scrooloose/syntastic'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'w0rp/ale'
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'nathanaelkane/vim-indent-guides'
 
 call vundle#end()
 
@@ -48,7 +53,7 @@ set laststatus=2
 set history=1000
 set ignorecase
 set smartcase
-set nu
+set number
 set showcmd
 set showmatch
 set showmode
@@ -160,7 +165,7 @@ au BufNewFile,BufRead .bashrc*,bashrc,bash.bashrc,.bash_profile*,.bash_logout*,*
 ":nnoremap <F5> :buffers<CR>:buffer<Space>
 
 "" Format columns at 80 & 120 characters
-let &colorcolumn="90,".join(range(120,999),",")
+let &colorcolumn="80,".join(range(120,999),",")
 
 "Git branch
 function! GitBranch()
