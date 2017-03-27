@@ -19,7 +19,7 @@ Plugin 'jelera/vim-javascript-syntax'
 Plugin 'jlanzarotta/bufexplorer'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'lepture/vim-jinja'
-Plugin 'mfukar/robotframework-vim'
+" Plugin 'mfukar/robotframework-vim'
 Plugin 'mkitt/tabline.vim'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'nvie/vim-flake8'
@@ -27,7 +27,7 @@ Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'plasticboy/vim-markdown'
 " Plugin 'scrooloose/syntastic'
-Plugin 'scrooloose/nerdcommenter'
+" Plugin 'scrooloose/nerdcommenter'
 Plugin 'w0rp/ale'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-unimpaired'
@@ -41,44 +41,49 @@ hi TabLine      ctermfg=Black  ctermbg=Green     cterm=NONE
 hi TabLineFill  ctermfg=Black  ctermbg=Green     cterm=NONE
 hi TabLineSel   ctermfg=White  ctermbg=DarkBlue  cterm=NONE
 
-"fold settings
+set antialias
+set autoindent
+set background=dark
+set backspace=indent,eol,start
+set backup
+set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set backupskip=/tmp/*,/private/tmp/*
+set cursorline
+" set dir=/tmp
+set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set ea
+set encoding=utf8
+set expandtab
+set foldlevel=1
 set foldmethod=indent
 set foldnestmax=10
-set nofoldenable
-set foldlevel=1
 set hidden
-set encoding=utf8
-set ttyfast
-set laststatus=2
 set history=1000
+set hlsearch
 set ignorecase
-set smartcase
+set incsearch
+set laststatus=2
+set lazyredraw
+set mouse=a
+set nofoldenable
 set number
+set ruler
+set rulerformat=%55(%{strftime('%a\ %b\ %e\ %I:%M\ %p')}\ %5l,%-6(%c%V%)\ %P%)
+set scrolloff=3
+set shiftround    " round indent to multiple of 'shiftwidth'
+set shiftwidth=4
 set showcmd
 set showmatch
 set showmode
+set smartcase
+set softtabstop=4 " insert/delete 4 spaces when hitting a TAB/BACKSPACE
+set spell spelllang=en_us
+set t_Co=256
+set tabstop=4
+set ttyfast
 set wildmenu
 set wildmode=list:longest
-set ruler
-set incsearch
-set hlsearch
-set antialias
-set autoindent
-set shiftwidth=4
-set shiftround    " round indent to multiple of 'shiftwidth'
-set tabstop=4
-set softtabstop=4 " insert/delete 4 spaces when hitting a TAB/BACKSPACE
-set expandtab
-set ea
-set rulerformat=%55(%{strftime('%a\ %b\ %e\ %I:%M\ %p')}\ %5l,%-6(%c%V%)\ %P%)
-set background=dark
-set cursorline
-set scrolloff=3
-set t_Co=256
-set spell spelllang=en_us
-set mouse=a
-set backspace=indent,eol,start
-set dir=/tmp
+set writebackup
 
 "" Show invisible characters as dots
 ""set list
