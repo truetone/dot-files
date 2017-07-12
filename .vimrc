@@ -1,3 +1,4 @@
+set shell=/bin/bash
 set runtimepath+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
@@ -6,8 +7,9 @@ call vundle#begin()
 " Plugin 'kien/ctrlp.vim'
 " Plugin 'klen/python-mode'
 " Plugin 'sjbach/lusty'
+Plugin 'ajh17/VimCompletesMe'
 Plugin 'AndrewRadev/linediff.vim'
-Plugin 'Valloric/YouCompleteMe'
+" Plugin 'Valloric/YouCompleteMe'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'bling/vim-airline'
@@ -26,13 +28,16 @@ Plugin 'nvie/vim-flake8'
 Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'plasticboy/vim-markdown'
+Plugin 'rhysd/conflict-marker.vim'
 " Plugin 'scrooloose/syntastic'
 " Plugin 'scrooloose/nerdcommenter'
+" Plugin 'Shougo/neocomplete.vim'
 Plugin 'w0rp/ale'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'Yggdroot/indentLine'
 
 call vundle#end()
 
@@ -53,6 +58,7 @@ set cursorline
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set ea
 set encoding=utf8
+set fileencoding=utf8
 set expandtab
 set foldlevel=1
 set foldmethod=indent
@@ -116,12 +122,10 @@ map <silent> <C-t> :tabe<space>
 map <silent> <C-p> :tabp<CR>
 map <silent> <C-n> :tabn<CR>
 
-"" Remap F7 to replace indenting spaces with tabs
 function! SpacesToTabs()
     set noexpandtab
     retab!
 endfunction
-"" nnoremap <silent> <F7> :call SpacesToTabs()<CR>
 
 "" Remap F2 to replace indenting tabs with spaces
 function! TabsToSpaces()
@@ -131,6 +135,7 @@ endfunction
 
 set pastetoggle=<F1>
 
+"" Remap F2 to replace indenting spaces with tabs
 nnoremap <silent> <F2> :call TabsToSpaces()<CR>
 
 "" Remap F3 to remove whitespace at the end of each line
