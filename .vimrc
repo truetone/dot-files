@@ -38,6 +38,8 @@ Plugin 'tpope/vim-unimpaired'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'Yggdroot/indentLine'
+Plugin 'isRuslan/vim-es6'
+Plugin 'yegappan/grep'
 
 call vundle#end()
 
@@ -53,6 +55,8 @@ set backspace=indent,eol,start
 set backup
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set backupskip=/tmp/*,/private/tmp/*
+set backupcopy=yes "prevents some problems with webpack
+set cole=0 " don't conceal anything
 set cursorline
 " set dir=/tmp
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
@@ -117,6 +121,10 @@ let $JS_CMD='node'
 let g:javascript_plugin_jsdoc = 1
 let g:jsdoc_allow_input_prompt = 1
 let g:jsdoc_input_description = 1
+
+let g:vim_markdown_conceal = 0
+let g:indentLine_conceallevel = 0
+"" let g:indent_guides_enable_on_vim_startup = 1
 
 map <silent> <C-t> :tabe<space>
 map <silent> <C-p> :tabp<CR>
