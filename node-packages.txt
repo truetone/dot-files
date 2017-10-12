@@ -1,0 +1,33 @@
+/Users/thoma127/.nvm/versions/node/v6.7.0/lib
+├── @angular/cli@1.4.2
+├── @frctl/fractal@1.1.3
+├── artillery@1.5.2
+├── bower@1.8.0
+├── browserify@13.1.0
+├── coffeelint@1.16.0
+├── colors@1.1.2
+├── cssbeautify-cli@0.5.3
+├── csslint@1.0.5
+├── documentation@4.0.0-beta11
+├── gcal@1.0.0
+├── git-recall@1.1.1
+├── git-standup@2.1.8
+├── gitbook-cli@2.3.2
+├── grunt-cli@1.2.0
+├── gtop@0.1.5
+├── gulp@3.9.1
+├── html-minifier-cli@0.1.0
+├── jshint@2.9.3
+├── jsonlint@1.6.2
+├── mocha@3.2.0
+├── ngrok@2.2.4
+├── npm@3.10.8
+├── polymer-cli@0.18.1
+├── roots@5.2.0
+├── sassdoc@2.1.20
+├── tldr@2.0.1
+├── typescript@2.5.2
+├── webpack@3.5.4
+├── webpack-bundle-size-analyzer@2.7.0
+└── yaml-cli@1.1.8
+

@@ -3,13 +3,17 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/thoma127/.oh-my-zsh
+# echo 'export PATH="/usr/local/sbin:$PATH"' >> ~/.zshrc
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="pygmalion"
+# ZSH_THEME="pygmalion"
 # ZSH_THEME="gentoo"
 # ZSH_THEME="kolo"
+# ZSH_THEME="agnoster"
+# ZSH_THEME="dallas"
+ZSH_THEME="muse"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -58,6 +62,7 @@ plugins=(git colored-man colorize github vagrant virtualenv pip python brew osx 
 
 source $ZSH/oh-my-zsh.sh
 source /Users/thoma127/marks.sh
+source /Users/thoma127/functions.sh
 
 # User configuration
 
@@ -88,77 +93,9 @@ source /Users/thoma127/marks.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+source /Users/thoma127/aliases.sh
 
-alias ll='ls -alhF'
-alias la='ls -A'
-alias l='ls -CF'
-
-alias vi='vim'
-
-# grep color http://superuser.com/questions/416835/how-can-i-grep-with-color-in-mac-os-xs-terminal
-export GREP_OPTIONS='--color=always'
-export GREP_COLOR='1;35;40'
-
-# some grep aliases
-alias greps="grep -rn --include '*.css' --include '*.scss' --include '*.yml' --include '*.sass' --include '*.py' --include '*.js' --include '*.php' --include '*.html' --include '*.txt' --include '*.rst' --include '*.robot'"
-alias grepi="grep -rin --include '*.css' --include '*.scss' --include '*.yml' --include '*.sass' --include '*.py' --include '*.js' --include '*.php' --include '*.html' --include '*.txt' --include '*.rst' --include '*.robot'"
-alias grep_php="grep -rin --include '*.php'"
-alias grep_css="grep -rin --include '*.css'"
-alias grep_js="grep -rin --include '*.js'"
-alias grep_py="grep -rin --include '*.py'"
-alias grep_pys="grep -rn --include '*.py'"
-alias grep_html="grep -rin --include '*.html'"
-alias grep_robot="grep -rin --include '*.robot'"
-
-# handy git aliases
-alias dev="git checkout develop"
-alias mas="git checkout master"
-alias st="git status -sb"
-alias gstat="git diff --stat"
-alias co="git checkout"
-alias add="git add"
-alias cmt="git commit"
-alias plod="git pull origin develop"
-alias phod="git push origin develop"
-alias plom="git pull origin master"
-alias phom="git push origin master"
-alias glog="git log --stat"
-alias gprettylog="git log --all --graph --pretty=format:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
-alias merge="git merge"
-alias gb="git branch"
-alias grmd="git ls-files --deleted -z | xargs -0 git rm" # Removes files deleted outside of git
-alias rm_merged='git branch --merged master | grep -v "\* master" | xargs -n 1 git branch -d'
-alias wpssh="ssh 'thoma127@cehd-wordpress-dev-web-01.oit.umn.edu'"
-alias wpsshswadm="ssh 'swadm@cehd-wordpress-dev-web-01.oit.umn.edu'"
-
-alias s="spotify"
-
-# Check out feature/<something>
-function checkOutFeature() {
-    git checkout feature/$1
-}
-
-function checkOutPepFeature() {
-    git checkout feature/PEP-$1
-}
-
-alias cof=checkOutFeature
-alias copf=checkOutPepFeature
-
-# Aliases
-# alias ll='ls -lah'
-
-# tmux
-alias attach="tmux a -t"
-
-# tmuxifier
-# eval "$(tmuxifier init -)"
-
-#Python simple server
-
-alias pyserve="python -m SimpleHTTPServer"
-
-screenfetch
+screenfetch -E
 
 export NVM_DIR="/Users/thoma127/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -281,3 +218,14 @@ fi
 ###-end-npm-completion-###
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export ZPLUG_HOME=/usr/local/opt/zplug
+source $ZPLUG_HOME/init.zsh
+### source /usr/local/bin/virtualenvwrapper.sh
+
+# source $(brew --prefix php-version)/php-version.sh && php-version 5
+export PATH="$(brew --prefix homebrew/php/php71)/bin:$PATH"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export PATH="/usr/local/sbin:$PATH"
+export NODE_PATH="/Users/thoma127/.nvm/versions/node/v6.7.0/bin/node"
