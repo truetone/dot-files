@@ -3,6 +3,7 @@ alias la='ls -A'
 alias l='ls -CF'
 
 alias vi='vim'
+alias open_modified="vim `git diff --name-only HEAD`";
 
 # grep color http://superuser.com/questions/416835/how-can-i-grep-with-color-in-mac-os-xs-terminal
 export GREP_OPTIONS='--color=always'

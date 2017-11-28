@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/thoma127/.oh-my-zsh
@@ -229,3 +229,4 @@ export PATH="$(brew --prefix homebrew/php/php71)/bin:$PATH"
 
 export PATH="/usr/local/sbin:$PATH"
 export NODE_PATH="/Users/thoma127/.nvm/versions/node/v6.7.0/bin/node"
+source $(rvm 1.9.3 do rvm env --path)
