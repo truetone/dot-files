@@ -229,4 +229,21 @@ export PATH="$(brew --prefix homebrew/php/php71)/bin:$PATH"
 
 export PATH="/usr/local/sbin:$PATH"
 export NODE_PATH="/Users/thoma127/.nvm/versions/node/v6.7.0/bin/node"
-source $(rvm 1.9.3 do rvm env --path)
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+
+export PATH=$PATH:~/work/bin
+export GOPATH=$HOME/work
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+
+if [ -f ~/.config/exercism/exercism_completion.zsh ]; then
+  . ~/.config/exercism/exercism_completion.zsh
+fi
