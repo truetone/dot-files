@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+# export PATH=$HOME/bin:/usr/local/bin:/Applications/Splunk/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/thoma127/.oh-my-zsh
@@ -98,7 +98,7 @@ source /Users/thoma127/aliases.sh
 screenfetch -E
 
 export NVM_DIR="/Users/thoma127/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+alias loadnvm='[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"'  # This loads nvm
 
 PATH=$PATH:$HOME/.composer/vendor/bin
 
@@ -217,13 +217,13 @@ elif type compctl &>/dev/null; then
 fi
 ###-end-npm-completion-###
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-export ZPLUG_HOME=/usr/local/opt/zplug
-source $ZPLUG_HOME/init.zsh
+# export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+# export ZPLUG_HOME=/usr/local/opt/zplug
+# source $ZPLUG_HOME/init.zsh
 ### source /usr/local/bin/virtualenvwrapper.sh
 
 # source $(brew --prefix php-version)/php-version.sh && php-version 5
-export PATH="$(brew --prefix homebrew/php/php71)/bin:$PATH"
+# export PATH="$(brew --prefix homebrew/php/php71)/bin:$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -231,19 +231,52 @@ export PATH="/usr/local/sbin:$PATH"
 export NODE_PATH="/Users/thoma127/.nvm/versions/node/v6.7.0/bin/node"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
+# export PATH="$PATH:$HOME/.rvm/bin"
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
 
-export PATH=$PATH:~/work/bin
-export GOPATH=$HOME/work
+# export PATH=$PATH:~/work/bin
+# export GOPATH=$HOME/work
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
+# export PATH="$PATH:$HOME/.rvm/bin"
 
 if [ -f ~/.config/exercism/exercism_completion.zsh ]; then
   . ~/.config/exercism/exercism_completion.zsh
 fi
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+source /Users/thoma127/.asr_aliases
+source /Users/thoma127/.asr_chruby
+
+for function in /Users/thoma127/.asr/functions/*; do
+  source $function
+done
+
+export PATH=$PATH:/usr/local/go/bin
+export OCI_DIR=$(brew --prefix)/lib
+
+# setopt PROMPT_SUBST
+# TIME='%B%F{red}[%D{%L:%M:%S}]'
+# PS1="$TIME$PS1"
+# TMOUT=1
+# 
+# TRAPALRM() {
+#     zle reset-prompt
+# }
+
+export PATH=/usr/local/share/python:$PATH
+export PATH=$HOME/go/bin:$PATH
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+export PATH=$PATH:/usr/local/bin/confluent/bin
+
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
+
+export GPG_TTY=$(tty)
+
+. /Users/thoma127/z/z.sh

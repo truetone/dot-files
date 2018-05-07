@@ -40,6 +40,9 @@ Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'Yggdroot/indentLine'
 Plugin 'isRuslan/vim-es6'
 Plugin 'yegappan/grep'
+Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
+Plugin 'thoughtbot/vim-rspec'
 
 call vundle#end()
 
@@ -86,7 +89,7 @@ set showcmd
 set showmatch
 set showmode
 set smartcase
-set softtabstop=4 " insert/delete 4 spaces when hitting a TAB/BACKSPACE
+set softtabstop=2 " insert/delete 2 spaces when hitting a TAB/BACKSPACE
 set spell spelllang=en_us
 set t_Co=256
 set tabstop=4
@@ -112,9 +115,13 @@ let g:pymode_virtualenv = 1
 let g:pymode_lint_checker = "pylint"
 let g:pymode_virtualenv_path = $VIRTUAL_ENV
 let g:pymode_lint_config = '$HOME/.pylint.rc'
-let g:syntastic_javascript_checkers = ['jshint']
-let g:syntastic_twig_twiglint_exec = 'php'
-let g:syntastic_twig_twiglint_exe = 'php /Users/thoma127/.twig/twig-lint.phar'
+
+"" JavaScript checkers
+let g:syntastic_javascript_checkers = ['jshint', 'eshint']
+
+"" Twig linting
+" let g:syntastic_twig_twiglint_exec = 'php'
+" let g:syntastic_twig_twiglint_exe = 'php /Users/thoma127/.twig/twig-lint.phar'
 let $JS_CMD='node'
 
 "" JsDoc options
@@ -125,6 +132,9 @@ let g:jsdoc_input_description = 1
 let g:vim_markdown_conceal = 0
 let g:indentLine_conceallevel = 0
 "" let g:indent_guides_enable_on_vim_startup = 1
+
+" rspec
+let g:rspec_command = "!./bin/rspec --drb {spec}"
 
 map <silent> <C-t> :tabe<space>
 map <silent> <C-p> :tabp<CR>
@@ -164,11 +174,20 @@ nnoremap <silent> <F7> :set ts=2 sts=2 noet<CR>
 "" Set tabspaces to 4
 nnoremap <silent> <F8> :set ts=4 sts=4 noet<CR>
 
+"" open w/ fzf
+nnoremap <silent> <C-O> :Files<CR>
+
+"" RSpec.vim mappings
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+map <Leader>a :call RunAllSpecs()<CR>
+
 colorscheme solarized
 " solarized options
-"" let g:solarized_visibility = "high"
-"" let g:solarized_contrast = "high"
-"" let g:solarized_termcolors = 256
+" let g:solarized_visibility = "high"
+let g:solarized_contrast = "high"
+" let g:solarized_termcolors = 256
 syntax on
 
 au BufNewFile,BufRead *.twig set filetype=jinja
@@ -177,6 +196,7 @@ au BufNewFile,BufRead *.js set ft=javascript
 au BufNewFile,BufRead *.md set filetype=markdown
 au BufNewFile,BufRead /etc/lighttpd/*.conf,lighttpd.conf set filetype=lighttpd
 au BufNewFile,BufRead .bashrc*,bashrc,bash.bashrc,.bash_profile*,.bash_logout*,*.bash,*.ebuild call SetFileTypeSH("bash")
+au BufNewFile,BufRead *.avsc set filetype=json
 " au BufAdd,BufNewFile * nested tab sball
 
 "" call pathogen#infect()
@@ -219,3 +239,4 @@ aug QFClose
   au!
   au WinEnter * if winnr('$') == 1 && getbufvar(winbufnr(winnr()), "&buftype") == "quickfix"|q|endif
 aug END
+source /Users/thoma127/.asrvimrc
