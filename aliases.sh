@@ -3,6 +3,7 @@ alias la='ls -A'
 alias l='ls -CF'
 
 alias vi='vim'
+alias vimo='vim $(fzf)'
 alias open_modified="vim `git diff --name-only HEAD`";
 
 # grep color http://superuser.com/questions/416835/how-can-i-grep-with-color-in-mac-os-xs-terminal
@@ -64,3 +65,9 @@ alias pyserve="python -m SimpleHTTPServer"
 alias phpunitall="phpunit -v -c tests/config.xml --colors=always"
 
 alias h="hop"
+
+alias asr_aliases="cat ~/.asr_aliases"
+alias s_aliases="cat ~/.asr_aliases | grep "
+alias s_history="history | grep"
+alias vacation="echo 'umn.edu_gjh72idh4stdgi3q2173d5e6jo@group.calendar.google.com' | pbcopy"
+alias cp_sa_stage_pwd="lpass show 4871817791911976488 --password | pbcopy"

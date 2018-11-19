@@ -11,9 +11,13 @@ export ZSH=/Users/thoma127/.oh-my-zsh
 # ZSH_THEME="pygmalion"
 # ZSH_THEME="gentoo"
 # ZSH_THEME="kolo"
+# ZSH_THEME="gianu"
+# ZSH_THEME="refined"
 # ZSH_THEME="agnoster"
 # ZSH_THEME="dallas"
 ZSH_THEME="muse"
+# ZSH_THEME="bullet-train"
+# ZSH_THEME="eastwood"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -95,9 +99,13 @@ source /Users/thoma127/functions.sh
 
 source /Users/thoma127/aliases.sh
 
-screenfetch -E
+# screenfetch -E
 
-export NVM_DIR="/Users/thoma127/.nvm"
+# export NVM_DIR="/Users/thoma127/.nvm"
+
+export NVM_DIR="$HOME/.nvm"
+  . "/usr/local/opt/nvm/nvm.sh"
+
 alias loadnvm='[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"'  # This loads nvm
 
 PATH=$PATH:$HOME/.composer/vendor/bin
@@ -262,7 +270,7 @@ export OCI_DIR=$(brew --prefix)/lib
 # TIME='%B%F{red}[%D{%L:%M:%S}]'
 # PS1="$TIME$PS1"
 # TMOUT=1
-# 
+#
 # TRAPALRM() {
 #     zle reset-prompt
 # }
@@ -280,3 +288,11 @@ export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
 export GPG_TTY=$(tty)
 
 . /Users/thoma127/z/z.sh
+
+export STUB_INTERNET_ID=thoma127
+# "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+
+export DRONE_SERVER=http://10.32.110.150
+source ~/.drone_token.sh
+
+source $HOME/git-pairing-session/git-pairing-session

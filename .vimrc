@@ -35,6 +35,7 @@ Plugin 'rhysd/conflict-marker.vim'
 Plugin 'w0rp/ale'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-unimpaired'
+Plugin 'tpope/vim-vinegar'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'Yggdroot/indentLine'
@@ -43,6 +44,8 @@ Plugin 'yegappan/grep'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
 Plugin 'thoughtbot/vim-rspec'
+" Plugin 'wincent/ferret'
+Plugin 'wincent/terminus'
 
 call vundle#end()
 
@@ -117,7 +120,7 @@ let g:pymode_virtualenv_path = $VIRTUAL_ENV
 let g:pymode_lint_config = '$HOME/.pylint.rc'
 
 "" JavaScript checkers
-let g:syntastic_javascript_checkers = ['jshint', 'eshint']
+"" let g:syntastic_javascript_checkers = ['jshint', 'eshint']
 
 "" Twig linting
 " let g:syntastic_twig_twiglint_exec = 'php'
@@ -135,6 +138,22 @@ let g:indentLine_conceallevel = 0
 
 " rspec
 let g:rspec_command = "!./bin/rspec --drb {spec}"
+
+let g:ale_ruby_rubocop_executable = "/Users/thoma127/.rubies/2.5.0/bin/rubocop"
+let g:ale_ruby_rubocop_options = "/Users/thoma127/.rubocop.yml"
+
+let g:FerretExecutable='ag,ack'
+
+" NERDtree-like settings
+" let g:netrw_banner = 0
+" let g:netrw_liststyle = 3
+" let g:netrw_browse_split = 4
+" let g:netrw_altv = 1
+" let g:netrw_winsize = 25
+" augroup drawer
+"   autocmd!
+"   autocmd VimEnter * :Vexplore
+" augroup END
 
 map <silent> <C-t> :tabe<space>
 map <silent> <C-p> :tabp<CR>
@@ -176,6 +195,12 @@ nnoremap <silent> <F8> :set ts=4 sts=4 noet<CR>
 
 "" open w/ fzf
 nnoremap <silent> <C-O> :Files<CR>
+
+" If fzf installed using Homebrew
+" set rtp+=/usr/local/bin/fzf
+
+" bind \ (backward slash) to grep shortcut
+" nnoremap \ :Ag<SPACE>
 
 "" RSpec.vim mappings
 map <Leader>t :call RunCurrentSpecFile()<CR>
