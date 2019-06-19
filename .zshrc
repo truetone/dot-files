@@ -296,3 +296,7 @@ export DRONE_SERVER=http://10.32.110.150
 source ~/.drone_token.sh
 
 source $HOME/git-pairing-session/git-pairing-session
+
+export EDITOR=/usr/local/bin/vim
+export PATH="/usr/local/opt/:$PATH"
+export PATH="/usr/local/opt/libxml2/bin:$PATH"

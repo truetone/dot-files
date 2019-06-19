@@ -99,7 +99,7 @@ set tabstop=4
 set ttyfast
 set wildmenu
 set wildmode=list:longest
-set writebackup
+" set writebackup
 
 "" Show invisible characters as dots
 ""set list
@@ -196,6 +196,11 @@ nnoremap <silent> <F8> :set ts=4 sts=4 noet<CR>
 "" open w/ fzf
 nnoremap <silent> <C-O> :Files<CR>
 
+"" turn on auto word wrapping
+"" nnoremap <silent> <C-W> :set tw=79<CR>
+
+"" nnoremap <silent> <C-T> :set tw=0<CR>
+
 " If fzf installed using Homebrew
 " set rtp+=/usr/local/bin/fzf
 
@@ -240,7 +245,7 @@ function! GitBranch()
 endfunction
 
 function! CurDir()
-    return substitute(getcwd(), '/Users/tonythomas/', "~/", "g")
+    return substitute(getcwd(), '/Users/thoma127/', "~/", "g")
 endfunction
 
 function! HasPaste()

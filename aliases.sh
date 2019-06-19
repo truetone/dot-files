@@ -71,3 +71,7 @@ alias s_aliases="cat ~/.asr_aliases | grep "
 alias s_history="history | grep"
 alias vacation="echo 'umn.edu_gjh72idh4stdgi3q2173d5e6jo@group.calendar.google.com' | pbcopy"
 alias cp_sa_stage_pwd="lpass show 4871817791911976488 --password | pbcopy"
+
+alias ci="open http://ci.asr.umn.edu"
+
+alias tdev="ssh thoma127@asr-thoma127-dev-web-01.oit.umn.edu"
