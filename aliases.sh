@@ -75,3 +75,6 @@ alias cp_sa_stage_pwd="lpass show 4871817791911976488 --password | pbcopy"
 alias ci="open http://ci.asr.umn.edu"
 
 alias tdev="ssh thoma127@asr-thoma127-dev-web-01.oit.umn.edu"
+
+alias lpass_sa_prod="lpass show 6209882616931100251 -cp"
+alias lpass_sa_stage="lpass show 4871817791911976488 -cp"
