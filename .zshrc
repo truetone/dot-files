@@ -299,4 +299,5 @@ source $HOME/git-pairing-session/git-pairing-session
 
 export EDITOR=/usr/local/bin/vim
 export PATH="/usr/local/opt/:$PATH"
+export PATH="/usr/local/opt/oracle:$PATH"
 export PATH="/usr/local/opt/libxml2/bin:$PATH"
