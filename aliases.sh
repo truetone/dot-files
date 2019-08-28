@@ -7,7 +7,7 @@ alias vimo='vim $(fzf)'
 alias open_modified="vim `git diff --name-only HEAD`";
 
 # grep color http://superuser.com/questions/416835/how-can-i-grep-with-color-in-mac-os-xs-terminal
-export GREP_OPTIONS='--color=always'
+# export GREP_OPTIONS='--color=always'
 export GREP_COLOR='1;35;40'
 
 # some grep aliases

@@ -62,7 +62,21 @@ ZSH_THEME="muse"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 # plugins=(git)
-plugins=(git colored-man colorize github vagrant virtualenv pip python brew osx zsh-syntax-highlighting colored-man-pages gulp httpie)
+plugins=(
+  brew
+  colored-man
+  colored-man-pages
+  colorize
+  git
+  github
+  httpie
+  osx
+  pip
+  python
+  ruby
+  web-search
+  zsh-syntax-highlighting
+)
 
 source $ZSH/oh-my-zsh.sh
 source /Users/thoma127/marks.sh
@@ -264,7 +278,9 @@ for function in /Users/thoma127/.asr/functions/*; do
 done
 
 export PATH=$PATH:/usr/local/go/bin
-export OCI_DIR=$(brew --prefix)/lib
+# export OCI_DIR=$(brew --prefix)/lib
+# export OCI_DIR=/opt/oracle/instantclient_12_1
+export OCI_DIR=/usr/local/opt/oracle
 
 # setopt PROMPT_SUBST
 # TIME='%B%F{red}[%D{%L:%M:%S}]'
@@ -301,3 +317,4 @@ export EDITOR=/usr/local/bin/vim
 export PATH="/usr/local/opt/:$PATH"
 export PATH="/usr/local/opt/oracle:$PATH"
 export PATH="/usr/local/opt/libxml2/bin:$PATH"
+export PKG_CONFIG_PATH="/usr/local/opt/libxml2/lib/pkgconfig"
