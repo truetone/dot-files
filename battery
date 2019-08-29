@@ -2,12 +2,14 @@
 
 tput civis
 tput bold
+clear
 
 while true
 do
-  clear
+  HOME=$(tput cup 0 0)
+  ED=$(tput ed)
+  printf '%s%s' "$HOME" "$ED"
   pmset -g batt | grep -Eo "\d+%"
-  tput cuu1
   sleep 30
 
   read -t 0.25 -N 1 input
