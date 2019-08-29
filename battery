@@ -5,7 +5,8 @@ while true
 do
   clear
   pmset -g batt | grep -Eo "\d+%"
-  sleep 10
+  tput cuu1
+  sleep 30
 
   read -t 0.25 -N 1 input
   if [[ $input = "q" ]] || [[ $input = "Q" ]]; then
