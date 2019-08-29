@@ -1,6 +1,8 @@
 #!/bin/bash
 
 tput civis
+tput bold
+
 while true
 do
   clear
