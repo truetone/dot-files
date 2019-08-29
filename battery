@@ -1,8 +1,17 @@
 #!/bin/bash
 
+tput civis
 while true
 do
-clear
-pmset -g batt | grep -Eo "\d+%"
-sleep 10
+  clear
+  pmset -g batt | grep -Eo "\d+%"
+  sleep 10
+
+  read -t 0.25 -N 1 input
+  if [[ $input = "q" ]] || [[ $input = "Q" ]]; then
+  # The following line is for the prompt to appear on a new line.
+    echo
+    tput cnorm
+    break
+  fi
 done
