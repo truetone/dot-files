@@ -8,8 +8,9 @@ while true
 do
   HOME=$(tput cup 0 0)
   ED=$(tput ed)
-  printf '%s%s' "$HOME" "$ED"
+  printf '%s' "Battery: "
   pmset -g batt | grep -Eo "\d+%"
+  printf '%s%s' "$HOME" "$ED"
   sleep 30
 
   # read -t 0.25 -N 1 input
