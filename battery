@@ -12,11 +12,11 @@ do
   pmset -g batt | grep -Eo "\d+%"
   sleep 30
 
-  read -t 0.25 -N 1 input
-  if [[ $input = "q" ]] || [[ $input = "Q" ]]; then
-  # The following line is for the prompt to appear on a new line.
-    echo
-    tput cnorm
-    break
-  fi
+  # read -t 0.25 -N 1 input
+  # if [[ $input = "q" ]] || [[ $input = "Q" ]]; then
+  # # The following line is for the prompt to appear on a new line.
+  #   echo
+  #   tput cnorm
+  #   break
+  # fi
 done
