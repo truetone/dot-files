@@ -46,6 +46,7 @@ Plugin 'junegunn/fzf.vim'
 Plugin 'thoughtbot/vim-rspec'
 " Plugin 'wincent/ferret'
 Plugin 'wincent/terminus'
+Plugin 'zah/nim.vim'
 
 call vundle#end()
 
