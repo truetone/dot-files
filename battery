@@ -8,16 +8,7 @@ while true
 do
   HOME=$(tput cup 0 0)
   ED=$(tput ed)
-  printf '%s' "Battery: "
-  pmset -g batt | grep -Eo "\d+%"
+  printf '%s% 4s' "Battery: " $(pmset -g batt | grep -Eo "\d+%")
   printf '%s%s' "$HOME" "$ED"
   sleep 30
-
-  # read -t 0.25 -N 1 input
-  # if [[ $input = "q" ]] || [[ $input = "Q" ]]; then
-  # # The following line is for the prompt to appear on a new line.
-  #   echo
-  #   tput cnorm
-  #   break
-  # fi
 done
