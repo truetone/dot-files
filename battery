@@ -1,14 +1,35 @@
 #!/bin/bash
 
-tput civis
-tput bold
-clear
+ORIGINAL_COLUMNS=$(stty size | awk '{print $NF}')
+ORIGINAL_LINES=$(stty size | awk '{print $1}')
 
-while true
-do
+print_battery() {
   HOME=$(tput cup 0 0)
   ED=$(tput ed)
   printf '%s% 4s' "Battery: " $(pmset -g batt | grep -Eo "\d+%")
   printf '%s%s' "$HOME" "$ED"
-  sleep 30
+}
+
+clear_screen() {
+  tput civis
+  tput bold
+  clear
+}
+
+clear_screen
+
+while true
+do
+  COLUMNS=$(stty size | awk '{print $NF}')
+  LINES=$(stty size | awk '{print $1}')
+
+  if [ "$COLUMNS" -ne "$ORIGINAL_COLUMNS" ] || [ "$LINES" -ne "$ORIGINAL_LINES" ]
+  then
+    ORIGINAL_COLUMNS=$COLUMNS
+    ORIGINAL_LINES=$LINES
+    clear_screen
+  fi
+
+  print_battery
+  sleep 1
 done
