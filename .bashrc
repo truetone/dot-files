@@ -13,7 +13,7 @@ HISTCONTROL=ignoredups:ignorespace
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
+HISTSIZE=10000
 HISTFILESIZE=2000
 
 # check the window size after each command and, if necessary,
@@ -84,14 +84,14 @@ fi
 #    . ~/.bash_aliases
 #fi
 
-if [ -f ~/dotfiles/.bash_aliases ]; then
-    . ~/dotfiles/.bash_aliases
+if [ -f ~/dot-files/.bash_aliases ]; then
+    . ~/dot-files/.bash_aliases
 fi
 
-export PATH=/usr/bin/python:$PATH
-export WORKON_HOME=/home/thoma127/.venvs
-export PROJECT_HOME=/www
-source /usr/local/bin/virtualenvwrapper.sh
+# export PATH=/usr/bin/python:$PATH
+# export WORKON_HOME=/home/thoma127/.venvs
+# export PROJECT_HOME=/www
+# source /usr/local/bin/virtualenvwrapper.sh
 
 # Get colors in less
 export LESS='-R'
@@ -102,8 +102,11 @@ alias tmux="TERM=screen-256color-bce tmux -2"
 alias hop=". hop $1"
 
 ## Give new files permissions 664 and new folders permission 775.
-umask 002
+# umask 002
 
+if [ -d "$HOME/vim/bin/" ] ; then
+  PATH="$HOME/vim/bin/:$PATH"
+fi
 # Give each hostname a custom color in the command prompt
 # Source: http://geofft.mit.edu/blog/sipb/125
 
