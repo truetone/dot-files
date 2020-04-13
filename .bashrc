@@ -2,7 +2,7 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 if [ -f /etc/bashrc ]; then
-	. /etc/bashrc
+  . /etc/bashrc
 fi
 
 # If not running interactively, don't do anything
@@ -62,44 +62,44 @@ fi
 # Set the git branch in the prompt
 function parse_git_branch {
 
-	git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ \[\1\]/'
+  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ \[\1\]/'
 
 }
 
 function proml {
 
-	local        BLUE="\[\033[0;34m\]"
+  local        BLUE="\[\033[0;34m\]"
 
-	# OPTIONAL - if you want to use any of these other colors:
-	local         RED="\[\033[0;31m\]"
-	local   LIGHT_RED="\[\033[1;31m\]"
-	local       GREEN="\[\033[0;32m\]"
-	local LIGHT_GREEN="\[\033[1;32m\]"
-	local       WHITE="\[\033[1;37m\]"
-	local  LIGHT_GRAY="\[\033[0;37m\]"
-	#END OPTIONAL
-	local     DEFAULT="\[\033[0m\]"
-	PS1="\h:\W \u$BLUE\$(parse_git_branch) $LIGHT_GREEN\$"
+  # OPTIONAL - if you want to use any of these other colors:
+  local         RED="\[\033[0;31m\]"
+  local   LIGHT_RED="\[\033[1;31m\]"
+  local       GREEN="\[\033[0;32m\]"
+  local LIGHT_GREEN="\[\033[1;32m\]"
+  local       WHITE="\[\033[1;37m\]"
+  local  LIGHT_GRAY="\[\033[0;37m\]"
+  #END OPTIONAL
+  local     DEFAULT="\[\033[0m\]"
+  PS1="\h:\W \u$BLUE\$(parse_git_branch) $LIGHT_GREEN\$"
 }
 
 proml
 
 # Completion wrapper from http://ubuntuforums.org/showthread.php?t=733397
 function completion-wrapper () {
-	local function_name="$2"
-	local arg_count=$(($#-3))
-	local comp_function_name="$1"
-	shift 2
-	local function="
+  local function_name="$2"
+  local arg_count=$(($#-3))
+  local comp_function_name="$1"
+  shift 2
+  local function="
 function $function_name {
-	((COMP_CWORD+=$arg_count))
-	COMP_WORDS=( "$@" \${COMP_WORDS[@]:1} )
-	"$comp_function_name"
-	return 0
+  ((COMP_CWORD+=$arg_count))
+  COMP_WORDS=( "$@" \${COMP_WORDS[@]:1} )
+  "$comp_function_name"
+  return 0
 }"
-	eval "$function"
-	#echo $function_name
-	#echo "$function"
+  eval "$function"
+  #echo $function_name
+  #echo "$function"
 }
 
 # Add completion to above aliases
@@ -116,13 +116,13 @@ fi
 
 # http://jeroenjanssens.com/2013/08/16/quickly-navigate-your-filesystem-from-the-command-line.html
 export MARKPATH=$HOME/.marks
-function jump { 
+function hop {
     cd -P "$MARKPATH/$1" 2>/dev/null || echo "No such mark: $1"
 }
-function mark { 
+function mark {
     mkdir -p "$MARKPATH"; ln -s "$(pwd)" "$MARKPATH/$1"
 }
-function unmark { 
+function unmark {
     rm -i "$MARKPATH/$1"
 }
 function marks {

@@ -26,3 +26,6 @@ alias glog="git log --stat"
 alias merge="git merge --no-ff"
 alias gb="git branch"
 alias grmd="git ls-files --deleted -z | xargs -0 git rm" # Removes files deleted outside of git
+alias ga="git add . -p"
+alias gb="git branch"
+alias rm_merged='git branch --merged master | grep -v "\* master" | xargs -n 1 git branch -d'
