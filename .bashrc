@@ -44,7 +44,7 @@ fi
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
 if [ -f ~/dot-files/.bash_aliases ]; then
-    . ~/dot-files/.bash_aliases
+    source ~/dot-files/.bash_aliases
 fi
 
 # Get colors in less
@@ -53,7 +53,7 @@ export LESSOPEN='|~/.lessfilter %s'
 
 alias tmux="TERM=screen-256color-bce tmux -2"
 
-alias hop=". hop $1"
+# alias hop=". hop $1"
 
 if [ -d "$HOME/vim/bin/" ] ; then
   PATH="$HOME/vim/bin/:$PATH"
@@ -79,10 +79,12 @@ function proml {
   local  LIGHT_GRAY="\[\033[0;37m\]"
   #END OPTIONAL
   local     DEFAULT="\[\033[0m\]"
-  PS1="\h:\W \u$BLUE\$(parse_git_branch) $LIGHT_GREEN\$"
+  PS1="\h:\W $BLUE\$(parse_git_branch) $LIGHT_GREEN\$"
 }
 
-proml
+# proml
+
+export PS1="\[\033[36m\]\u\[\033[m\]@\[\033[32m\] \[\033[33;1m\]\w\[\033[m\] \[\033[0;34m\](\$(git branch 2>/dev/null | grep '^*' | colrm 1 2)) \[\033[0m\]\$ "
 
 # Completion wrapper from http://ubuntuforums.org/showthread.php?t=733397
 function completion-wrapper () {
@@ -131,3 +133,9 @@ function marks {
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
