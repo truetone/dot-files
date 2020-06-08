@@ -78,3 +78,5 @@ alias tdev="ssh thoma127@asr-thoma127-dev-web-01.oit.umn.edu"
 
 alias lpass_sa_prod="lpass show 6209882616931100251 -cp"
 alias lpass_sa_stage="lpass show 4871817791911976488 -cp"
+
+alias dev_jme="ssh thoma127@asr-thoma127-dev-web-01.oit.umn.edu"

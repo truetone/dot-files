@@ -47,6 +47,10 @@ Plugin 'thoughtbot/vim-rspec'
 " Plugin 'wincent/ferret'
 Plugin 'wincent/terminus'
 Plugin 'zah/nim.vim'
+Plugin 'morhetz/gruvbox'
+Plugin 'MaxMEllon/vim-jsx-pretty'
+Plugin 'yuezk/vim-js'
+Plugin 'ap/vim-css-color'
 
 call vundle#end()
 
@@ -81,6 +85,7 @@ set ignorecase
 set incsearch
 set laststatus=2
 set lazyredraw
+set linebreak
 set mouse=a
 set nofoldenable
 set number
@@ -126,6 +131,11 @@ let g:pymode_lint_config = '$HOME/.pylint.rc'
 "" Twig linting
 " let g:syntastic_twig_twiglint_exec = 'php'
 " let g:syntastic_twig_twiglint_exe = 'php /Users/thoma127/.twig/twig-lint.phar'
+augroup twig_ft
+  au!
+  autocmd BufNewFile,BufRead *.theme   set syntax=php
+augroup END
+
 let $JS_CMD='node'
 
 "" JsDoc options
@@ -214,11 +224,18 @@ map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
 
-colorscheme solarized
+" colorscheme solarized
 " solarized options
 " let g:solarized_visibility = "high"
-let g:solarized_contrast = "high"
+" let g:solarized_contrast = "high"
 " let g:solarized_termcolors = 256
+
+set termguicolors
+
+" colorscheme monokai
+colorscheme gruvbox
+let g:gruvbox_contrast_dark = "hard"
+
 syntax on
 
 au BufNewFile,BufRead *.twig set filetype=jinja

@@ -15,9 +15,12 @@ export ZSH=/Users/thoma127/.oh-my-zsh
 # ZSH_THEME="refined"
 # ZSH_THEME="agnoster"
 # ZSH_THEME="dallas"
-ZSH_THEME="muse"
+# had this for years --->>> ZSH_THEME="muse"
 # ZSH_THEME="bullet-train"
 # ZSH_THEME="eastwood"
+# ZSH_THEME="sorin"
+# ZSH_THEME="kolo"
+ZSH_THEME="miloshadzic"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -254,11 +257,6 @@ export NODE_PATH="/Users/thoma127/.nvm/versions/node/v6.7.0/bin/node"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 # export PATH="$PATH:$HOME/.rvm/bin"
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-fi
 
 # export PATH=$PATH:~/work/bin
 # export GOPATH=$HOME/work
@@ -280,7 +278,7 @@ done
 export PATH=$PATH:/usr/local/go/bin
 # export OCI_DIR=$(brew --prefix)/lib
 # export OCI_DIR=/opt/oracle/instantclient_12_1
-export OCI_DIR=/usr/local/opt/oracle
+export OCI_DIR=/usr/local/opt/oracle/instantclient_18_1
 
 # setopt PROMPT_SUBST
 # TIME='%B%F{red}[%D{%L:%M:%S}]'
@@ -317,4 +315,20 @@ export EDITOR=/usr/local/bin/vim
 export PATH="/usr/local/opt/:$PATH"
 export PATH="/usr/local/opt/oracle:$PATH"
 export PATH="/usr/local/opt/libxml2/bin:$PATH"
-export PKG_CONFIG_PATH="/usr/local/opt/libxml2/lib/pkgconfig"
+export NPM_TOKEN="dae4cf77-1a0f-403a-89d0-524d50bc08df"
+export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+export DYLD_LIBRARY_PATH="/usr/local/opt/oracle/instantclient_18_1"
+export ORACLE_HOME="/usr/local/opt/oracle/instantclient_18_1"
+ssh-add ~/.ssh/id_rsa
+# export PYENV_VERSION=2.7.8
+source ~/.brew-github-token
+
+export PATH="/usr/local/opt/openssl@1.0.2t/bin:$PATH"
+
+# For compilers to find openssl@1.0.2t you may need to set:
+export LDFLAGS="-L/usr/local/opt/openssl@1.0.2t/lib"
+export CPPFLAGS="-I/usr/local/opt/openssl@1.0.2t/include"
+
+# For pkg-config to find openssl@1.0.2t you may need to set:
+export PKG_CONFIG_PATH="/usr/local/opt/openssl@1.0.2t/lib/pkgconfig"
+export PATH="/usr/local/opt/python@3.8/bin:$PATH"
