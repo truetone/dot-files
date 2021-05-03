@@ -26,6 +26,7 @@ alias grep_rk="grep -rin --include '*.rk'"
 # handy git aliases
 alias dev="git checkout develop"
 alias mas="git checkout master"
+alias main="git checkout main"
 alias st="git status -sb"
 alias gstat="git diff --stat"
 alias co="git checkout"
@@ -42,7 +43,7 @@ alias ga="git add . -p"
 alias gm!="git checkout master;git reset --hard origin/master"
 alias gb="git branch"
 alias grmd="git ls-files --deleted -z | xargs -0 git rm" # Removes files deleted outside of git
-alias rm_merged='git branch --merged master | grep -v "\* master" | xargs -n 1 git branch -d'
+alias rm_merged='git branch --merged main | grep -v "\* main" | xargs -n 1 git branch -d'
 
 alias s="spotify"
 
@@ -79,4 +80,4 @@ alias tdev="ssh thoma127@asr-thoma127-dev-web-01.oit.umn.edu"
 alias lpass_sa_prod="lpass show 6209882616931100251 -cp"
 alias lpass_sa_stage="lpass show 4871817791911976488 -cp"
 
-alias dev_jme="ssh thoma127@asr-thoma127-dev-web-01.oit.umn.edu"
+alias dev_jme="ssh thoma127@asr-thoma127-dev-web-02.oit.umn.edu"

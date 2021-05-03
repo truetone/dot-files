@@ -43,6 +43,7 @@ Plugin 'isRuslan/vim-es6'
 Plugin 'yegappan/grep'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
+Plugin 'junegunn/vim-peekaboo'
 Plugin 'thoughtbot/vim-rspec'
 " Plugin 'wincent/ferret'
 Plugin 'wincent/terminus'
@@ -118,6 +119,9 @@ set noswapfile
 
 "" :setlocal buftype=nofile
 "" :setlocal bufhidden=hide
+
+"" vim-markdown
+let g:vim_markdown_follow_anchor = 1
 
 "" pymode virtualenv detection
 let g:pymode_virtualenv = 1

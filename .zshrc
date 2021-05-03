@@ -3,6 +3,7 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/thoma127/.oh-my-zsh
+export PATH="/usr/local/bin:$PATH"
 # echo 'export PATH="/usr/local/sbin:$PATH"' >> ~/.zshrc
 
 # Set name of the theme to load. Optionally, if you set this to "random"
@@ -20,7 +21,7 @@ export ZSH=/Users/thoma127/.oh-my-zsh
 # ZSH_THEME="eastwood"
 # ZSH_THEME="sorin"
 # ZSH_THEME="kolo"
-ZSH_THEME="miloshadzic"
+# ZSH_THEME="miloshadzic"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -67,7 +68,6 @@ ZSH_THEME="miloshadzic"
 # plugins=(git)
 plugins=(
   brew
-  colored-man
   colored-man-pages
   colorize
   git
@@ -76,9 +76,9 @@ plugins=(
   osx
   pip
   python
+  rails
   ruby
   web-search
-  zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -184,63 +184,6 @@ elif type compctl &>/dev/null; then
   compctl -K _npm_completion npm
 fi
 ###-end-npm-completion-###
-###-begin-npm-completion-###
-#
-# npm command completion script
-#
-# Installation: npm completion >> ~/.bashrc  (or ~/.zshrc)
-# Or, maybe: npm completion > /usr/local/etc/bash_completion.d/npm
-#
-
-if type complete &>/dev/null; then
-  _npm_completion () {
-    local words cword
-    if type _get_comp_words_by_ref &>/dev/null; then
-      _get_comp_words_by_ref -n = -n @ -w words -i cword
-    else
-      cword="$COMP_CWORD"
-      words=("${COMP_WORDS[@]}")
-    fi
-
-    local si="$IFS"
-    IFS=$'\n' COMPREPLY=($(COMP_CWORD="$cword" \
-                           COMP_LINE="$COMP_LINE" \
-                           COMP_POINT="$COMP_POINT" \
-                           npm completion -- "${words[@]}" \
-                           2>/dev/null)) || return $?
-    IFS="$si"
-  }
-  complete -o default -F _npm_completion npm
-elif type compdef &>/dev/null; then
-  _npm_completion() {
-    local si=$IFS
-    compadd -- $(COMP_CWORD=$((CURRENT-1)) \
-                 COMP_LINE=$BUFFER \
-                 COMP_POINT=0 \
-                 npm completion -- "${words[@]}" \
-                 2>/dev/null)
-    IFS=$si
-  }
-  compdef _npm_completion npm
-elif type compctl &>/dev/null; then
-  _npm_completion () {
-    local cword line point words si
-    read -Ac words
-    read -cn cword
-    let cword-=1
-    read -l line
-    read -ln point
-    si="$IFS"
-    IFS=$'\n' reply=($(COMP_CWORD="$cword" \
-                       COMP_LINE="$line" \
-                       COMP_POINT="$point" \
-                       npm completion -- "${words[@]}" \
-                       2>/dev/null)) || return $?
-    IFS="$si"
-  }
-  compctl -K _npm_completion npm
-fi
-###-end-npm-completion-###
 
 # export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 # export ZPLUG_HOME=/usr/local/opt/zplug
@@ -270,6 +213,7 @@ fi
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 source /Users/thoma127/.asr_aliases
 source /Users/thoma127/.asr_chruby
+chruby 2.6.6
 
 for function in /Users/thoma127/.asr/functions/*; do
   source $function
@@ -289,7 +233,7 @@ export OCI_DIR=/usr/local/opt/oracle/instantclient_18_1
 #     zle reset-prompt
 # }
 
-export PATH=/usr/local/share/python:$PATH
+# export PATH=/usr/local/share/python@2:$PATH
 export PATH=$HOME/go/bin:$PATH
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
@@ -323,12 +267,18 @@ ssh-add ~/.ssh/id_rsa
 # export PYENV_VERSION=2.7.8
 source ~/.brew-github-token
 
-export PATH="/usr/local/opt/openssl@1.0.2t/bin:$PATH"
+# export PATH="/usr/local/opt/openssl@1.0.2t/bin:$PATH"
 
 # For compilers to find openssl@1.0.2t you may need to set:
-export LDFLAGS="-L/usr/local/opt/openssl@1.0.2t/lib"
-export CPPFLAGS="-I/usr/local/opt/openssl@1.0.2t/include"
+# export LDFLAGS="-L/usr/local/opt/openssl@1.0.2t/lib"
+# export CPPFLAGS="-I/usr/local/opt/openssl@1.0.2t/include"
 
 # For pkg-config to find openssl@1.0.2t you may need to set:
-export PKG_CONFIG_PATH="/usr/local/opt/openssl@1.0.2t/lib/pkgconfig"
-export PATH="/usr/local/opt/python@3.8/bin:$PATH"
+# export PKG_CONFIG_PATH="/usr/local/opt/openssl@1.0.2t/lib/pkgconfig"
+# export PATH="/usr/local/opt/python@3.8/bin:$PATH"
+export PATH="/usr/local/opt/v8@3.15/bin:$PATH"
+eval "$(starship init zsh)"
+
+export CFLAGS="-I$(brew --prefix openssl)/include"
+export LDFLAGS="-L$(brew --prefix openssl)/lib"
+unsetopt nomatch
